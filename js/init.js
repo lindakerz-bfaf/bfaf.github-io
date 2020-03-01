@@ -16,15 +16,28 @@
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 
+function yesnohtml(question) {
+  var html = question["question"];
+
+  return html;
+}
+
+function scalehtml(question) {
+  var html = question["question"];
+  
+  return html;
+}
+
 $( document ).ready(function() {
   $.getJSON( "js/bfaf.json", function( data ) {
     var questions = data["questions"];
-    console.log(questions);
-
 
     $.each(questions, function(key, question) {
-      console.log(key);
-      console.log(question);
+      if(question["type"] == "yesno") {
+        console.log(yesnohtml(question));
+      } else if(question["type"] == "scale") {
+        console.log(scalehtml(question));
+      }
     });
   });
 
