@@ -29,17 +29,19 @@ function scalehtml(question) {
 }
 
 $( document ).ready(function() {
-  $.getJSON( "../js/bfaf.json", function( data ) {
-    var questions = data["questions"];
+   if($("form").length > 0) {
+    $.getJSON( "../js/bfaf.json", function( data ) {
+      var questions = data["questions"];
 
-    $.each(questions, function(key, question) {
-      if(question["type"] == "yesno") {
-        console.log(yesnohtml(question));
-      } else if(question["type"] == "scale") {
-        console.log(scalehtml(question));
-      }
+      $.each(questions, function(key, question) {
+        if(question["type"] == "yesno") {
+          console.log(yesnohtml(question));
+        } else if(question["type"] == "scale") {
+          console.log(scalehtml(question));
+        }
+      });
     });
-  });
+  }
 
 });
 
