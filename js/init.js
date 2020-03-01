@@ -41,7 +41,7 @@ function scalehtml(question) {
 
 $( document ).ready(function() {
   if($("form").length > 0) {
-    $.getJSON( "./js/bfaf.json", function( data ) {
+    $.getJSON( "../js/bfaf.json", function( data ) {
       var questions = data["questions"];
 
       $.each(questions, function(key, question) {
