@@ -76,7 +76,7 @@ function getResponseValue(responseText) {
   }
 }
 
-displayResults(results) {
+function displayResults(results) {
   var categories = [];
   $.each(results, function(key, result) {
     if(typeof categories[result["factor"]] == "undefined") {
