@@ -36,11 +36,11 @@ function scalehtml(question, key) {
     html += "<p>" + question["info"] + "</p>";
   }
   html += "<div class='form-question-answer'>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='never'> <span>Never</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='rarely'> <span>Rarely</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='sometimes'> <span>Sometimes</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='often'> <span>Often</span> </label> </div>";
   html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='always'> <span>Always</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='often'> <span>Often</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='sometimes'> <span>Sometimes</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='rarely'> <span>Rarely</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='never'> <span>Never</span> </label> </div>";
   html += "</div>";
   return html;
 }
