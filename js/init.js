@@ -46,7 +46,7 @@ function scalehtml(question, key) {
 }
 
 function calculateResults(questions) {
-  $("form input:selected").each(function(key, response) {
+  $("form input:checked").each(function(key, response) {
     if(key == response.attr("data-id")) {
       console.log(response);
     }
