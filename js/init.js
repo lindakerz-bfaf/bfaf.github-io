@@ -87,6 +87,8 @@ function displayResults(results) {
     categories[result["factor"]]["value"] += result["responseWeightedValue"];
   });
   console.log(categories);
+  $(".responses").append("<p>" + JSON.stringify(results) + "</p>");
+  $(".factors").append("<p>" + JSON.stringify(categories) + "</p>");
   return categories;
 }
 
