@@ -55,6 +55,7 @@ $( document ).ready(function() {
           $("form").append(scalehtml(question));
         }
       });
+      $("form").append($('#form-submit-button').parent());
     });
   }
 
