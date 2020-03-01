@@ -80,10 +80,14 @@ function displayResults(results) {
   var categories = [];
   $.each(results, function(key, result) {
     if(typeof categories[result["factor"]] == "undefined") {
-      categories[result["factor"]] = result["factor"];
+      categories[result["factor"]] = { "factor": result["factor"], "value": 0 };
     }
   });
+  $.each(results, function(key, result) {
+    categories[result["factor"]]["value"] += result["responseWeightedValue"];
+  });
   console.log(categories);
+  return categories;
 }
 
 $( document ).ready(function() {
