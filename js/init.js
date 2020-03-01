@@ -17,31 +17,43 @@
 })(jQuery); // end of jQuery name space
 
 function yesnohtml(question) {
-  var html = question["question"];
-
+  var html = "<h6>" + question["question"] + "</h6>";
+  if(question["info"]) {
+    html += "<p>" + question["info"] + "</p>";
+  }
+  html += "<div class='col s2'> <label> <input class='with-gap' name='" + question["id"] + "' type='radio' id='yes'> <span>Yes</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' name='" + question["id"] + "' type='radio' id='no'> <span>No</span> </label> </div>";
   return html;
 }
 
 function scalehtml(question) {
-  var html = question["question"];
-  
+  var html = "<h6>" + question["question"] + "</h6>";
+  if(question["info"]) {
+    html += "<p>" + question["info"] + "</p>";
+  }
+  html += "<div class='col s2'> <label> <input class='with-gap' name='" + question["id"] + "' type='radio' id='never'> <span>Never</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' name='" + question["id"] + "' type='radio' id='rarely'> <span>Rarely</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' name='" + question["id"] + "' type='radio' id='sometimes'> <span>Sometimes</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' name='" + question["id"] + "' type='radio' id='often'> <span>Often</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' name='" + question["id"] + "' type='radio' id='always'> <span>Always</span> </label> </div>";
   return html;
 }
 
 $( document ).ready(function() {
-   if($("form").length > 0) {
-    $.getJSON( "../js/bfaf.json", function( data ) {
+  if($("form").length > 0) {
+    $.getJSON( "./js/bfaf.json", function( data ) {
       var questions = data["questions"];
 
       $.each(questions, function(key, question) {
         if(question["type"] == "yesno") {
-          console.log(yesnohtml(question));
+          $("form").append(yesnohtml(question));
         } else if(question["type"] == "scale") {
-          console.log(scalehtml(question));
+          $("form").append(scalehtml(question));
         }
       });
     });
   }
+
 
 });
 
