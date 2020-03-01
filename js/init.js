@@ -66,20 +66,18 @@ $( document ).ready(function() {
         }
       });
       $("form").append($('#form-submit-button').parent());
+      $('#form-submit-button').click(function() {
+        //TODO Validation
+        $('#framework-form').hide();
+        $('#framework-results').show();
+        calculateResults(questions);
+        $(window).scrollTop(0);
+      });
     });
 
   }
 
   $('#framework-results').hide();
-
-  $('#form-submit-button').click(function() {
-    //TODO Validation
-    $('#framework-form').hide();
-    $('#framework-results').show();
-    calculateResults(questions);
-    $(window).scrollTop(0);
-  });
-
 
 });
 
