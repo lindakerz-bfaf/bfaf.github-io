@@ -48,16 +48,13 @@ function scalehtml(question, key) {
 function calculateResults(questions) {
   $("form input:checked").each(function(key, response) {
     if(key == $(response).attr("data-id")) {
-      console.log(response);
       var responseText = $(response).attr("id");
       var responseValue = getResponseValue(responseText);
       questions[key]["response"] = responseText;
       questions[key]["responseValue"] = responseValue;
-      questions[key]["responseWeightedValue"] = questions[key]["weighting"] * responseValue;   
+      questions[key]["responseWeightedValue"] = questions[key]["weighting"] * responseValue;
     }
   });
-  console.log("Questions with response weightings");
-  console.log(questions);
   return questions;
 }
 
@@ -79,6 +76,16 @@ function getResponseValue(responseText) {
   }
 }
 
+displayResults(results) {
+  var categories = [];
+  $.each(results, function(key, result) {
+    if(typeof categories[result["factor"]] == "undefined") {
+      categories[result["factor"]] = [result["factor"]];
+    }
+  });
+  console.log(categories);
+}
+
 $( document ).ready(function() {
   if($("form").length > 0) {
     $.getJSON( "../js/bfaf.json", function( data ) {
@@ -96,7 +103,8 @@ $( document ).ready(function() {
         //TODO Validation
         $('#framework-form').hide();
         $('#framework-results').show();
-        calculateResults(questions);
+        var results = calculateResults(questions);
+        displayResults(results);
         $(window).scrollTop(0);
       });
     });
