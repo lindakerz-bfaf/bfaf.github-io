@@ -51,9 +51,9 @@ function calculateResults(questions) {
       console.log(response);
       var responseText = $(response).attr("id");
       var responseValue = getResponseValue(responseText);
-      questions["key"]["response"] = responseText;
-      questions["key"]["responseValue"] = responseValue;
-      questions["key"]["responseWeightedValue"] = questions["key"]["weighting"] * responseValue;    
+      questions[key]["response"] = responseText;
+      questions[key]["responseValue"] = responseValue;
+      questions[key]["responseWeightedValue"] = questions[key]["weighting"] * responseValue;   
     }
   });
   console.log("Questions with response weightings");
