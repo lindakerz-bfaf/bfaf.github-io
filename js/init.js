@@ -18,8 +18,14 @@
 
 $( document ).ready(function() {
   $.getJSON( "js/bfaf.json", function( data ) {
-    var questions = data;
-    console.log(data);
+    var questions = data["questions"];
+    console.log(questions);
+
+
+    $.each(questions, function(key, question) {
+      console.log(key);
+      console.log(question);
+    });
   });
 
 });
