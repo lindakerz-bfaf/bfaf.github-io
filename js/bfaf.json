@@ -1,0 +1,39 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Our group shares a clearly understood purpose",
+      "type": "yesno",
+      "weighting": 0.57,
+      "factor": "Purpose"
+    },
+    {
+      "id": "q2",
+      "question": "Our group has the sense that our work is important to the institution right now",
+      "type": "scale",
+      "weighting": 0.70,
+      "factor": "Purpose"
+    },
+    {
+      "id": "q3",
+      "question": "Our group works towards common goals that everyone articulates in the same way",
+      "type": "scale",
+      "weighting": 0.58,
+      "factor": "Buy in and commitment"
+    },
+    {
+      "id": "q4",
+      "question": "Each group memeber is equally committed to the group's success",
+      "type": "scale",
+      "weighting": 0.61,
+      "factor": "Buy in and commitment"
+    },
+    {
+      "id": "q6",
+      "question": "Each group memeber is individually accountable to the group's purpose, goals, and work approach",
+      "type": "yesno",
+      "weighting": 0.55,
+      "factor": "Buy in and commitment"
+    }
+  ]
+}
