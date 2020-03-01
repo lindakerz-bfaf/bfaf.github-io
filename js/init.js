@@ -49,8 +49,34 @@ function calculateResults(questions) {
   $("form input:checked").each(function(key, response) {
     if(key == $(response).attr("data-id")) {
       console.log(response);
+      var responseText = $(response).attr("id");
+      var responseValue = getResponseValue(responseText);
+      questions["key"]["response"] = responseText;
+      questions["key"]["responseValue"] = responseValue;
+      questions["key"]["responseWeightedValue"] = questions["key"]["weighting"] * responseValue;    
     }
   });
+  console.log("Questions with response weightings");
+  console.log(questions);
+  return questions;
+}
+
+function getResponseValue(responseText) {
+  if(responseText == "yes") {
+    return yes;
+  } else if(responseText == "no") {
+    return no;
+  } else if(responseText == "always") {
+    return always;
+  } else if(responseText == "often") {
+    return often;
+  } else if(responseText == "sometimes") {
+    return sometimes;
+  } else if(responseText == "rarely") {
+    return rarely;
+  } else if(responseText == "never") {
+    return never;
+  }
 }
 
 $( document ).ready(function() {
