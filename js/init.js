@@ -29,7 +29,7 @@ function scalehtml(question) {
 }
 
 $( document ).ready(function() {
-  $.getJSON( "js/bfaf.json", function( data ) {
+  $.getJSON( "./js/bfaf.json", function( data ) {
     var questions = data["questions"];
 
     $.each(questions, function(key, question) {
