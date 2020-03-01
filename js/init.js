@@ -80,7 +80,7 @@ displayResults(results) {
   var categories = [];
   $.each(results, function(key, result) {
     if(typeof categories[result["factor"]] == "undefined") {
-      categories[result["factor"]] = [result["factor"]];
+      categories[result["factor"]] = result["factor"];
     }
   });
   console.log(categories);
