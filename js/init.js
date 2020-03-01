@@ -16,6 +16,13 @@
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 
+$( document ).ready(function() {
+  $.getJSON( "js/bfaf.json", function( data ) {
+    var questions = data;
+    console.log(data);
+  });
+
+});
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
