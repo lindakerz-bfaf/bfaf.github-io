@@ -85,3 +85,7 @@ label {
   width: 600px;
   height: 600px;
 }
+
+.form-question-answer {
+  padding: 40px 0; 
+}
