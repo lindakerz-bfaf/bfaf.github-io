@@ -1,39 +1,587 @@
 {
   "questions": [
     {
-      "id": "q1",
-      "question": "Our group shares a clearly understood purpose",
-      "type": "yesno",
-      "weighting": 0.57,
-      "factor": "Purpose"
+      "question": "The company has adopted, in short order, an aggressive, wide-ranging and/or large scale downsizing (stores, layoffs etc.) and cost-saving efforts",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Management: Decision, Skills and Qualities",
+      "factor": "Material Strategic Action: Disinvestment, downsizing and/or cost-saving (closing of stores and/or downsizing labor force)",
+      "clusters": [
+        {
+          "weighting": 11,
+          "stage": "0-2"
+        },
+        {
+          "weighting": 8,
+          "stage": "3-10"
+        }
+      ]
     },
     {
-      "id": "q2",
-      "question": "Our group has the sense that our work is important to the institution right now",
-      "type": "scale",
-      "weighting": 0.70,
-      "factor": "Purpose"
+      "question": "The company has reported accelerating and/or plunging sales deterioration year over year (-4% to -20% or possibly greater)",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Firm",
+      "factor": "Deterioration of Financial Performance: Topline (Sales)",
+      "clusters": [
+        {
+          "weighting": 10,
+          "stage": "0-2"
+        },
+        {
+          "weighting": 9,
+          "stage": "3-10"
+        }
+      ]
     },
     {
-      "id": "q3",
-      "question": "Our group works towards common goals that everyone articulates in the same way",
-      "type": "scale",
-      "weighting": 0.58,
-      "factor": "Buy in and commitment"
+      "question": "The company post profit losses in which yoy trends identify that the plunge is accelerating (-4% to -20% or possibly greater)",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Firm",
+      "factor": "Deterioration of Financial Performance: Bottom Line (Profits)",
+      "clusters": [
+        {
+          "weighting": 10,
+          "stage": "0-2"
+        },
+        {
+          "weighting": 8,
+          "stage": "3-10"
+        }
+      ]
     },
     {
-      "id": "q4",
-      "question": "Each group memeber is equally committed to the group's success",
-      "type": "scale",
-      "weighting": 0.61,
-      "factor": "Buy in and commitment"
+      "question": "The company has a concerningly low current ratio and quick ratio",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Firm",
+      "factor": "Deterioration of Financial Performance: Severe Liquidity problems",
+      "clusters": [
+        {
+          "weighting": 8,
+          "stage": "0-2"
+        }
+      ]
     },
     {
-      "id": "q6",
-      "question": "Each group memeber is individually accountable to the group's purpose, goals, and work approach",
-      "type": "yesno",
-      "weighting": 0.55,
-      "factor": "Buy in and commitment"
+      "question": "The company has adopted a radical restructure and/or turnaround strategy",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Management: Decision, Skills and Qualities",
+      "factor": "Material Strategic Action: Restructure, Rebrand, Turnaround and/or Redirection",
+      "clusters": [
+        {
+          "weighting": 7,
+          "stage": "0-2"
+        },
+        {
+          "weighting": 5,
+          "stage": "11-20"
+        }
+      ]
+    },
+    {
+      "question": "The company has changed key leadership positions (i.e. CEO) as a results of poor performance",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Management: Management System",
+      "factor": "Change in Executive Leadership",
+      "clusters": [
+        {
+          "weighting": 6,
+          "stage": "0-2"
+        },
+        {
+          "weighting": 10,
+          "stage": "3-10"
+        }
+      ]
+    },
+    {
+      "question": "The company's stock has collapsed or persistently drifted to extremely low levels threatening it compliance the exchange listing standard",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Firm",
+      "factor": "Steep Decline in Stock Price and/or Exchange Delisting",
+      "clusters": [
+        {
+          "weighting": 6,
+          "stage": "0-2"
+        },
+        {
+          "weighting": 5,
+          "stage": "3-10"
+        }
+      ]
+    },
+    {
+      "question": "The company has experience a wide-spread loss in confidence and/or legitimacy by key investors and creditors",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Immediate",
+      "subDomain": "Micro",
+      "factor": "Loss of confidence and/or legitimacy by investors, partners, suppliers creditors and/or customers",
+      "clusters": [
+        {
+          "weighting": 6,
+          "stage": "0-2"
+        }
+      ]
+    },
+    {
+      "question": "The company features structurally constrained operations which make it unable to adjusted to threatening forcing (e.g. price compete) and/or take advantage of favorable opportunities (less ability to innovate, improve operations etc.)",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Firm",
+      "factor": "Structural Paralysis preventing strategic action or change in response to internal and external environment pressures",
+      "clusters": [
+        {
+          "weighting": 5,
+          "stage": "0-2"
+        }
+      ]
+    },
+    {
+      "question": "Several vendors and/or suppliers demand tighter payment terms, reduce ship quantities, and/or refuse to provide products or services to the company",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Immediate",
+      "subDomain": "Micro",
+      "factor": "Suppliers want to be paid in shortly payment intervals and/or upfront",
+      "clusters": [
+        {
+          "weighting": 5,
+          "stage": "0-2"
+        }
+      ]
+    },
+    {
+      "question": "The company has a concerningly high Debt to assets ratio and Debt to equity ratio",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Firm",
+      "factor": "Significant Debt Levels and/or Accelerated Accumulation of Debt",
+      "clusters": [
+        {
+          "weighting": 5,
+          "stage": "0-2"
+        }
+      ]
+    },
+
+
+
+
+    {
+      "question": "The company conducted a material acquisition and/or spun off underperforming subsidiaries",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Management: Decision, Skills and Qualities",
+      "factor": "Material Strategic Action: M&A&D",
+      "clusters": [
+        {
+          "weighting": 8,
+          "stage": "3-10"
+        },
+        {
+          "weighting": 8,
+          "stage": "11-20"
+        }
+      ]
+    },
+    {
+      "question": "The company has adopted a strategy to diversify its product and services away from the core",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Management: Decision, Skills and Qualities",
+      "factor": "Material Strategic Action: Diversification of Product and/or Service",
+      "clusters": [
+        {
+          "weighting": 8,
+          "stage": "3-10"
+        }
+      ]
+    },
+    {
+      "question": "The company was acquired into PE firm or new Parent Organization, or was spun off by a PE firm or Parent Organization",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Management: Decision, Skills and Qualities",
+      "factor": "Material Strategic Action: Sale or Divesture of Organization",
+      "clusters": [
+        {
+          "weighting": 6,
+          "stage": "3-10"
+        },
+        {
+          "weighting": 7,
+          "stage": "11-20"
+        }
+      ]
+    },
+    {
+      "question": "Performance of core products and services have slowed and/or lost market share",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Firm",
+      "factor": "Declining/Lagging Product and/or Service Performance",
+      "clusters": [
+        {
+          "weighting": 5,
+          "stage": "3-10"
+        }
+      ]
+    },
+    {
+      "question": "The Company adopted a turnaround or restructure attempt which ultimately made the company financially worse and/or failed to address critical issues",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Firm",
+      "factor": "Failed Strategic Restructure, Turnaround and/or Redirection",
+      "clusters": [
+        {
+          "weighting": 5,
+          "stage": "3-10"
+        }
+      ]
+    },
+
+
+
+
+
+
+    {
+      "question": "The company faces threatening and market share eroding competition from multiple sources and types of competition (peer incumbents, disruptive new entrants, and/or big-box businesses)",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Immediate",
+      "subDomain": "Micro",
+      "factor": "Increasing and/or Aggressive Competitive Rivalry",
+      "clusters": [
+        {
+          "weighting": 8,
+          "stage": "0-2"
+        },
+        {
+          "weighting": 6,
+          "stage": "3-10"
+        },
+        {
+          "weighting": 4,
+          "stage": ">20"
+        },
+        {
+          "weighting": 19,
+          "stage": "all"
+        }
+      ]
+    },
+
+
+    {
+      "question": "Management made strategic decisions that were outright wrong and/or materially unfavorable to the business (post strategy execution result) ",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Management: Decision, Skills and Qualities",
+      "factor": "Inferior management quality and skill: Strategic Errors",
+      "clusters": [
+        {
+          "weighting": 9,
+          "stage": "3-10"
+        },
+        {
+          "weighting": 7,
+          "stage": "11-20"
+        },
+        {
+          "weighting": 5,
+          "stage": ">20"
+        },
+        {
+          "weighting": 17,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "The company has experienced significant short-term growth and/or adopted a rapid expansion strategy, either domestically or internationally, that aims to significantly grow their footprint and potentially propelled them to a dominant and highly successful company in their industry (i.e. - widespread store expansion, aggressive acquisition strategy, etc.)",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Management: Strategic Focus",
+      "factor": "Management Strategic Focus: Aggressive, Ambitious and/or Risky Endeavors",
+      "clusters": [
+        {
+          "weighting": 8,
+          "stage": "3-10"
+        },
+        {
+          "weighting": 13,
+          "stage": "11-20"
+        },
+        {
+          "weighting": 6,
+          "stage": ">20"
+        },
+        {
+          "weighting": 13,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "Management has shown inferior capabilities to address, gauge, understand and/or failure to anticipate material business-related matters",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Management: Decision, Skills and Qualities",
+      "factor": "Inferior management quality and skill: Strategic Foresight",
+      "clusters": [
+        {
+          "weighting": 7,
+          "stage": "3-10"
+        },
+        {
+          "weighting": 5,
+          "stage": ">20"
+        },
+        {
+          "weighting": 14,
+          "stage": "all"
+        }
+      ]
+    },
+
+
+
+
+
+    {
+      "question": "Management respond to a changing industry landscape and/or competitive environment using proven strategies and tactics that allowed them to achieve success in past",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Management Personality, Behaviors and Characteristics",
+      "factor": "Management Cognitive Inertia: Responding to change in environment",
+      "clusters": [
+        {
+          "weighting": 15,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "Customers have shown a change in preference or demand for core products and services of the organization",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Immediate",
+      "subDomain": "Micro",
+      "factor": "Changes in consumer tastes, demand or market power",
+      "clusters": [
+        {
+          "weighting": 14,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "The company lacks quality resources and core competencies to effective compete, manage a changing environment and/or fundamentally maintain the operations",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Firm: Business Model",
+      "factor": "Business Model: lack/loss/misallocation of quality resources and distinctive competencies",
+      "clusters": [
+        {
+          "weighting": 11,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "The company appears to underestimate the need for marketing and/or a poor undifferentiated marketing strategy",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Firm: Ineffective processes and systems",
+      "factor": "Ineffective processes and systems: Marketing, Marketing Mix and/or Branding",
+      "clusters": [
+        {
+          "weighting": 9,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "The company is financially vulnerable to a recessionary downturn",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "General",
+      "subDomain": "Macro",
+      "factor": "Changes in Economic Factors: Recessionary Downturn",
+      "clusters": [
+        {
+          "weighting": 8,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "The company appears overwhelmed by a high debt burden loading on the company during a past buyout",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Firm: Business Model",
+      "factor": "Business Model: Constrained by Leveraged Buyout Debt",
+      "clusters": [
+        {
+          "weighting": 8,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "Management has shown naivety (nonchalant action) and/or complacency (slow action) in effectively responding to a changing industry landscape and/or competitive environment",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Management Personality, Behaviors and Characteristics",
+      "factor": "Management Cognitive Inertia: Responding to change in environment (Complacency)",
+      "clusters": [
+        {
+          "weighting": 8,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "The company's industry is facing wide-ranging disruption, turmoil and/or change (Consolidation, change in investor confidence, etc.)",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Immediate",
+      "subDomain": "Micro",
+      "factor": "Industry-wide Disruption and Complexities",
+      "clusters": [
+        {
+          "weighting": 7,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "There is material disharmony inside of the organization amongst employees and/or lower management",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Management: Management System",
+      "factor": "Ineffective management systems: Internal Stakeholder Disharmony",
+      "clusters": [
+        {
+          "weighting": 7,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "The company has experience frequent turnover within the top-level executive team",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Management: Management System",
+      "factor": "Ineffective management systems: Frequently Changing Management Team",
+      "clusters": [
+        {
+          "weighting": 7,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "The company is largely dependent on deteriorating low margin (low value) products or services",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Firm: Business Model",
+      "factor": "Business Model: Low Value/Devaluing Business activities (Products/Service)",
+      "clusters": [
+        {
+          "weighting": 6,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "The company appears overwhelmed by a high debt burden loaded on the company during past buyout",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Firm: Ineffective processes and systems",
+      "factor": "Structural Inertia: Rigidity in Strategic Action",
+      "clusters": [
+        {
+          "weighting": 6,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "Management appear resistant to change in light of an changing industry landscape and/or competitive environment",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Management Personality, Behaviors and Characteristics",
+      "factor": "Management Cognitive Inertia: Resistance to change",
+      "clusters": [
+        {
+          "weighting": 6,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "Top level management appear very confident, somewhat arrogant, and ignorant as a result of the companies past success",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Management Personality, Behaviors and Characteristics",
+      "factor": "Management Personality deficiencies: hubris leader (narcissist, arrogance, excessive pride, dangerous overconfidence)",
+      "clusters": [
+        {
+          "weighting": 6,
+          "stage": "all"
+        }
+      ]
+    },
+    {
+      "question": "Top level management have conflicting self-interests which could materially influence their strategic decisions and behaviors",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Management Personality, Behaviors and Characteristics",
+      "factor": "Management Personality deficiencies: Conflicting Self-Interests",
+      "clusters": [
+        {
+          "weighting": 6,
+          "stage": "all"
+        }
+      ]
     }
   ]
 }

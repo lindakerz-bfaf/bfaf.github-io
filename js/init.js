@@ -18,14 +18,16 @@ var sometimes = 0.5;
 var rarely = 0.25;
 var never = 0;
 
+var SCALE_MODE = 5
+
 function yesnohtml(question, key) {
   var html = "<h6>" + question["question"] + "</h6>";
   if(question["info"]) {
     html += "<p>" + question["info"] + "</p>";
   }
   html += "<div class='form-question-answer'>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='yes'> <span>Yes</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='no'> <span>No</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' value='yes'> <span>Yes</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' value='no'> <span>No</span> </label> </div>";
   html += "</div>";
   return html;
 }
@@ -36,26 +38,53 @@ function scalehtml(question, key) {
     html += "<p>" + question["info"] + "</p>";
   }
   html += "<div class='form-question-answer'>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='always'> <span>Always</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='often'> <span>Often</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='sometimes'> <span>Sometimes</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='rarely'> <span>Rarely</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' id='never'> <span>Never</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' value='always'> <span>Always</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' value='often'> <span>Often</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' value='sometimes'> <span>Sometimes</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' value='rarely'> <span>Rarely</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' value='never'> <span>Never</span> </label> </div>";
   html += "</div>";
   return html;
 }
 
+function getTotalWeight(stage, questions){
+  var totalWeight = 0
+  $.each(questions, function(index, question){
+    $.each(question.clusters, function(index, cluster){
+      if(cluster.stage === stage || !stage){ totalWeight += cluster.weighting }
+    })
+  })
+  return totalWeight
+}
+
 function calculateResults(questions) {
+  var responses = []
   $("form input:checked").each(function(key, response) {
     if(key == $(response).attr("data-id")) {
-      var responseText = $(response).attr("id");
+      var responseText = $(response).attr("value");
       var responseValue = getResponseValue(responseText);
-      questions[key]["response"] = responseText;
-      questions[key]["responseValue"] = responseValue;
-      questions[key]["responseWeightedValue"] = questions[key]["weighting"] * responseValue;
+      var question = questions[key]
+      $.each(question.clusters, function(clusterIndex, cluster){
+        var totalStageWeight = getTotalWeight(cluster.stage, questions) || 1
+        var totalWeight = getTotalWeight(null, questions) || 1
+        var weightedValue = cluster.weighting*responseValue
+        responses.push({
+            type: question.type,
+            domain: question.domain,
+            subDomain: question.subDomain,
+            factor: question.factor,
+            stage: cluster.stage,
+            response: responseText,
+            value: responseValue,
+            weightedValue: {
+              stage: weightedValue/totalStageWeight,
+              overall: weightedValue/totalWeight
+            }
+        })
+      })
     }
   });
-  return questions;
+  return responses;
 }
 
 function getResponseValue(responseText) {
@@ -79,47 +108,112 @@ function getResponseValue(responseText) {
 function displayResults(results) {
   var categories = {};
   $.each(results, function(key, result) {
-    if(typeof categories[result["factor"]] == "undefined") {
-      categories[result["factor"]] = { "factor": result["factor"], "value": 0 };
-    }
+    var type = result.type
+    var factor = result.factor
+    var stage = result.stage
+    var domainKey = result.domain + ' - ' + result.subDomain
+    categories[type] = categories[type] || {}
+    categories[type][domainKey] = categories[type][domainKey] || {}
+    categories[type][domainKey][factor] = categories[type][domainKey][factor] || {}
+    categories[type][domainKey][factor][stage] = result.weightedValue.stage
   });
-  $.each(results, function(key, result) {
-    categories[result["factor"]]["value"] += result["responseWeightedValue"];
-  });
+  var stages = ['0-2','3-10','11-20','>20','all']
   console.log(categories);
+  var html = ''
+  var tableHtml = '<table>'
+  tableHtml += '<tr>'
+  tableHtml += '<th>Type</th>'
+  tableHtml += '<th>Domain</th>'
+  tableHtml += '<th>Factor</th>'
+  $.each(stages, function(index, stage){
+    tableHtml += '<th>' + stage + ' Years</th>'
+  })
+  tableHtml += '</tr>'
+  $.each(categories, function(type, typeCats){
+    $.each(typeCats, function(domainKey, domainCats){
+      html += '<h5>' + type + ': ' + domainKey + '</h5>'
+      $.each(domainCats, function(factor, factorCats){
+        html += '<h6>' + factor + '</h6>'
+        tableHtml += '<tr>'
+        tableHtml += '<td>' + type + '</td>'
+        tableHtml += '<td>' + domainKey + '</td>'
+        tableHtml += '<td>' + factor + '</td>'
+        $.each(stages, function(index, stage){
+          if(factorCats[stage] != null){
+            var value = factorCats[stage]
+            tableHtml += '<td>' + numeral(value).format('0.00%') + '</td>'
+          } else {
+            tableHtml += '<td />'
+          }
+        })
+        tableHtml += '</tr>'
+        $.each(factorCats, function(stage, value){
+          html += '<p>' + stage + ' = ' + numeral(value).format('0.00%') + '</p>'
+        })
+      })
+    })
+  })
+  tableHtml += '</table>'
+  $(".factors").append("<p>" + tableHtml + "</p><p>" + html + "</p>");
   $(".responses").append("<p>" + JSON.stringify(results) + "</p>");
-  $(".factors").append("<p>" + JSON.stringify(categories) + "</p>");
   return categories;
+}
+
+function autoPopulateForm(questions) {
+  //used for testing
+  $.each(questions, function(key, question) {
+    var min = 0
+    var max = 1
+    var options = []
+    if(question["questionType"] == "yesno") {
+      options = ['no','yes']
+    } else if(question["questionType"] == "scale") {
+      max = SCALE_MODE - 1
+      options = SCALE_MODE === 5
+        ? ['always','often','sometimes','rarely','never']
+        : ['always','sometimes','never']
+    }
+    var result = getRandomInt(min, max)
+    var option = options[result]
+    $('input[data-id='+key+'][value='+option+']').prop("checked", true)
+  });
+}
+
+function getRandomInt(min, max){
+  return min + Math.floor(Math.random() * (max - min + 1));
 }
 
 $( document ).ready(function() {
   if($("form").length > 0) {
-    $.getJSON( "../js/bfaf.json", function( data ) {
-      var questions = data["questions"];
-
-      $.each(questions, function(key, question) {
-        if(question["type"] == "yesno") {
-          $("form").append(yesnohtml(question, key));
-        } else if(question["type"] == "scale") {
-          $("form").append(scalehtml(question, key));
-        }
-      });
-      $("form").append($('#form-submit-button').parent());
-      $('#form-submit-button').click(function() {
-        //TODO Validation
-        $('#framework-form').hide();
-        $('#framework-results').show();
-        var results = calculateResults(questions);
-        displayResults(results);
-        $(window).scrollTop(0);
-      });
-    });
+    $.getJSON( "../js/bfaf.json", onJSONLoaded);
 
   }
-
   $('#framework-results').hide();
 
 });
+
+function onJSONLoaded(data){
+  var questions = data["questions"];
+
+  $.each(questions, function(index, question) {
+    question.id = 'q' + index
+    if(question["questionType"] == "yesno") {
+      $("form").append(yesnohtml(question, index));
+    } else if(question["questionType"] == "scale") {
+      $("form").append(scalehtml(question, index));
+    }
+  });
+  $("form").append($('#form-submit-button').parent());
+  $('#form-submit-button').click(function() {
+    //TODO Validation
+    $('#framework-form').hide();
+    $('#framework-results').show();
+    var results = calculateResults(questions);
+    displayResults(results);
+    $(window).scrollTop(0);
+  });
+  $("#auto-populate").on("click", function(){ autoPopulateForm(questions) });
+}
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {

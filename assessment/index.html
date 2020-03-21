@@ -13,21 +13,21 @@
 <body>
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Business Failure Assessment Framework</a>
+      <a id="logo-container" href="/" class="brand-logo">Business Failure Assessment Framework</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="http://bfaf.online">Home/About</a></li>
-        <li class="active-item"><a href="http://bfaf.online/assessment">Assessment</a></li>
+        <li><a href="/">Home/About</a></li>
+        <li class="active-item"><a href="/assessment">Assessment</a></li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
-        <li><a href="http://bfaf.online">Home/About</a></li>
-        <li class="active-item"><a href="http://bfaf.online/assessment">Assessment</a></li>
+        <li><a href="/">Home/About</a></li>
+        <li class="active-item"><a href="/assessment">Assessment</a></li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
 
-
+  <!-- FORM PAGE -->
   <div id="framework-form">
 
   <div class="container">
@@ -38,6 +38,9 @@
           <h3><i class="mdi-content-send brown-text"></i></h3>
           <h3>Info about the assessment framework</h3>
           <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+          <p>
+            <a id="auto-populate">Auto Populate</a>
+          </p>
         </div>
       </div>
 
@@ -50,29 +53,21 @@
         <div class="col s12">
           <h3><i class="mdi-content-send brown-text"></i></h3>
           <h3>Assessment Framework</h3>
-
-
           <form action="#">
-            
-
             <div class="row right">
               <a id="form-submit-button" class="btn-large waves-effect waves-light teal lighten-1">Submit</a>
             </div>
           </form>
-
-
-
         </div>
       </div>
-
     </div>
   </div>
-
 </div>
+
+<!-- ANSWER PAGE -->
 <div id="framework-results">
   <div class="container">
     <div class="section">
-
       <div class="row">
         <div class="col s12">
           <h3><i class="mdi-content-send brown-text"></i></h3>
@@ -83,36 +78,12 @@
               <canvas id="myChart" width="600" height="600"></canvas>
             </div>
           </div>
-          <div class="row">
-            <div class="col s12">
-              <h6>Category 1</h6>
-              <p>Info about their results and ways to fix it</p>
 
-              <h6>Category 2</h6>
-              <p>Info about their results and ways to fix it</p>
+          <div class="factors">
 
-              <h6>Category 3</h6>
-              <p>Info about their results and ways to fix it</p>
-
-              <h6>Category 4</h6>
-              <p>Info about their results and ways to fix it</p>
-
-              <h6>Category 5</h6>
-              <p>Info about their results and ways to fix it</p>
-
-              <h6>Category 6</h6>
-              <p>Info about their results and ways to fix it</p>
-
-              <h6>Category 7</h6>
-              <p>Info about their results and ways to fix it</p>
-
-            </div>
           </div>
           <div class="responses">
             <h6>Raw Responses</h6>
-          </div>
-          <div class="factors">
-            <h6>Raw Factors calculated</h6>
           </div>
         </div>
       </div>
@@ -133,6 +104,7 @@
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
   <script src="../js/Chart.js"></script>
   <script src="../js/materialize.js"></script>
   <script src="../js/init.js"></script>
