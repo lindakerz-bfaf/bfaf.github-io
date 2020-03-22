@@ -20,41 +20,63 @@ var never = 0;
 
 var SCALE_MODE = 5
 var SORTED_STAGES = ['0-2','3-10','11-20']
+var PASS_STAGE_WEIGHT = 0.75
 var PAGES = [
   {stage:'0-2', type: 'Symptom'},
   {stage:'3-10', type: 'Symptom', showIf: function(results){
-    // todo
-    return true
+    return getStageWeight('0-2', results) < PASS_STAGE_WEIGHT
   }},
   {type: 'Factor'}
 ]
 var currentPage = -1
 
-function yesnohtml(question, key) {
-  var html = "<h6>" + question["question"] + "</h6>";
-  if(question["info"]) {
-    html += "<p>" + question["info"] + "</p>";
+function yesNoHtml(question, key) {
+  var html = "<h6>" + question.question + "</h6>";
+  if(question.info) {
+    html += "<p>" + question.info + "</p>";
   }
   html += "<div class='form-question-answer'>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' value='yes'> <span>Yes</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' value='no'> <span>No</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='yes'> <span>Yes</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='no'> <span>No</span> </label> </div>";
   html += "</div>";
   return html;
 }
 
-function scalehtml(question, key) {
-  var html = "<h6>" + question["question"] + "</h6>";
-  if(question["info"]) {
-    html += "<p>" + question["info"] + "</p>";
+function scaleHtml(question, key) {
+  var html = "<h6>" + question.question + "</h6>";
+  if(question.info) {
+    html += "<p>" + question.info + "</p>";
   }
   html += "<div class='form-question-answer'>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' value='always'> <span>Always</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' value='often'> <span>Often</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' value='sometimes'> <span>Sometimes</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' value='rarely'> <span>Rarely</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question["id"] + "' type='radio' value='never'> <span>Never</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='always'> <span>Always</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='often'> <span>Often</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='sometimes'> <span>Sometimes</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='rarely'> <span>Rarely</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='never'> <span>Never</span> </label> </div>";
   html += "</div>";
   return html;
+}
+
+function counterScaleHtml(question, key) {
+  var html = "<h6>" + question.counterQuestion + "</h6>";
+  html += "<div class='form-question-answer counter-question'>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='always' disabled> <span>Always</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='often' disabled> <span>Often</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='sometimes' disabled> <span>Sometimes</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='rarely' disabled> <span>Rarely</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='never' disabled> <span>Never</span> </label> </div>";
+  html += "</div>";
+  return html;
+}
+
+function getStageWeight(stage, results){
+  var reducer = function(total, result){
+    if(result.stage === stage && result.weightedValue && result.weightedValue.stage){
+      return total + result.weightedValue.stage
+    }
+    return total
+  }
+  return (results || []).reduce(reducer, 0)
 }
 
 function getTotalWeight(stage, questions){
@@ -97,7 +119,6 @@ function displayResults(results) {
     categories[type][domainKey][factor] = categories[type][domainKey][factor] || {}
     categories[type][domainKey][factor][stage] = result.weightedValue.stage
   });
-  console.log(categories);
   var html = ''
   var tableHtml = '<table>'
   tableHtml += '<tr>'
@@ -208,12 +229,16 @@ function renderPage(questions){
   $.each(questions, function(index, question) {
     question.id = 'q' + index
     if(question["questionType"] == "yesno") {
-      $("#form-content").append(yesnohtml(question, index));
+      $("#form-content").append(yesNoHtml(question, index));
     } else if(question["questionType"] == "scale") {
-      $("#form-content").append(scalehtml(question, index));
+      $("#form-content").append(scaleHtml(question, index));
+    }
+    if(question.counterQuestion){
+      $("#form-content").append(counterScaleHtml(question, index));
     }
   });
 }
+
 
 function onJSONLoaded(data){
   var questions = data.questions;
@@ -239,19 +264,38 @@ function onJSONLoaded(data){
     $(window).scrollTop(0);
   });
   $("#auto-populate").on("click", function(){ autoPopulateForm(questions) });
+  $(document).on('click', 'input[type="radio"]', function(){
+    var key = $(this).attr('data-id')
+    var disabled = $(this).val() === 'never'
+    $('.counter-question input[data-id="counter-'+ key + '"]').attr('disabled', disabled)
+  })
 }
 
 function calculateResults(questions) {
   var responses = []
   $("form input:checked").each(function(key, response) {
-    if(key == $(response).attr("data-id")) {
-      var responseText = $(response).attr("value");
+    // if(key == $(response).attr("data-id")) {
+      var id = $(response).attr("data-id")
+      var counterPrefix = 'counter-'
+      if(id && id.substring(0, counterPrefix.length) === counterPrefix){
+        return // ignore counter inputs
+      }
+      var responseText = $(response).val();
       var responseValue = getResponseValue(responseText);
-      var question = questions[key]
-      $.each(question.clusters, function(clusterIndex, cluster){
+      var netResponseValue = responseValue
+      var counterInput = $("form input[data-id='"+ counterPrefix + id + "']:checked").val()
+      var counterResponseValue = 0
+      if(counterInput){
+        counterResponseValue =  getResponseValue(counterInput)
+        // remove counter response weighting, ensure that cannot be below 0
+        netResponseValue -= counterResponseValue || 0
+        netResponseValue =  Math.max(0, netResponseValue)
+      }
+      var question = questions[id]
+      $.each(question && question.clusters, function(clusterIndex, cluster){
         var totalStageWeight = getTotalWeight(cluster.stage, questions) || 1
         var totalWeight = getTotalWeight(null, questions) || 1
-        var weightedValue = cluster.weighting*responseValue
+        var weightedValue = cluster.weighting*netResponseValue
         responses.push({
             code: question.code,
             type: question.type,
@@ -260,14 +304,16 @@ function calculateResults(questions) {
             factor: question.factor,
             stage: cluster.stage,
             response: responseText,
-            value: responseValue,
+            value: netResponseValue,
+            rawValue: responseValue,
+            counterValue: counterResponseValue,
             weightedValue: {
               stage: weightedValue/totalStageWeight,
               overall: weightedValue/totalWeight
             }
         })
       })
-    }
+    // }
   });
   return responses;
 }
