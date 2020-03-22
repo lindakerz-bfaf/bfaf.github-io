@@ -1,6 +1,7 @@
 {
   "questions": [
     {
+      "code": "S1",
       "question": "The company has adopted, in short order, an aggressive, wide-ranging and/or large scale downsizing (stores, layoffs etc.) and cost-saving efforts",
       "questionType": "scale",
       "type": "Symptom",
@@ -19,7 +20,8 @@
       ]
     },
     {
-      "question": "The company has reported accelerating and/or plunging sales deterioration year over year (-4% to -20% or possibly greater)",
+      "code": "S2a",
+      "question": "The company has reported 'accelerating and/or plunging sales' deterioration year over year (-4% to -20% or possibly greater)",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Internal",
@@ -29,15 +31,12 @@
         {
           "weighting": 10,
           "stage": "0-2"
-        },
-        {
-          "weighting": 9,
-          "stage": "3-10"
         }
       ]
     },
     {
-      "question": "The company post profit losses in which yoy trends identify that the plunge is accelerating (-4% to -20% or possibly greater)",
+      "code": "S3a",
+      "question": "The company post profit losses in which YOY trends identify that the 'plunge is accelerating' (-4% to -20% or possibly greater)",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Internal",
@@ -47,14 +46,11 @@
         {
           "weighting": 10,
           "stage": "0-2"
-        },
-        {
-          "weighting": 8,
-          "stage": "3-10"
         }
       ]
     },
     {
+      "code": "S4",
       "question": "The company has a concerningly low current ratio and quick ratio",
       "questionType": "scale",
       "type": "Symptom",
@@ -69,7 +65,8 @@
       ]
     },
     {
-      "question": "The company has adopted a radical restructure and/or turnaround strategy",
+      "code": "S5",
+      "question": "The company has adopted a radical restructure and/or turnaround strategy to address an underperforming business",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Internal",
@@ -87,7 +84,8 @@
       ]
     },
     {
-      "question": "The company has changed key leadership positions (i.e. CEO) as a results of poor performance",
+      "code": "S6",
+      "question": "The company has changed key leadership positions (i.e. CEO) as a result of poor performance",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Internal",
@@ -105,7 +103,8 @@
       ]
     },
     {
-      "question": "The company's stock has collapsed or persistently drifted to extremely low levels threatening it compliance the exchange listing standard",
+      "code": "S7a",
+      "question": "The company's stock has 'collapsed or persistently drifted to extremely low levels' threatening it compliance to the exchange listing standard",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Internal",
@@ -115,14 +114,11 @@
         {
           "weighting": 6,
           "stage": "0-2"
-        },
-        {
-          "weighting": 5,
-          "stage": "3-10"
         }
       ]
     },
     {
+      "code": "S8",
       "question": "The company has experience a wide-spread loss in confidence and/or legitimacy by key investors and creditors",
       "questionType": "scale",
       "type": "Symptom",
@@ -137,6 +133,7 @@
       ]
     },
     {
+      "code": "S9",
       "question": "The company features structurally constrained operations which make it unable to adjusted to threatening forcing (e.g. price compete) and/or take advantage of favorable opportunities (less ability to innovate, improve operations etc.)",
       "questionType": "scale",
       "type": "Symptom",
@@ -151,6 +148,7 @@
       ]
     },
     {
+      "code": "S10",
       "question": "Several vendors and/or suppliers demand tighter payment terms, reduce ship quantities, and/or refuse to provide products or services to the company",
       "questionType": "scale",
       "type": "Symptom",
@@ -165,6 +163,7 @@
       ]
     },
     {
+      "code": "S11",
       "question": "The company has a concerningly high Debt to assets ratio and Debt to equity ratio",
       "questionType": "scale",
       "type": "Symptom",
@@ -183,7 +182,38 @@
 
 
     {
-      "question": "The company conducted a material acquisition and/or spun off underperforming subsidiaries",
+      "code": "S2b",
+      "question": "The company has 'consistently (over an extended period)' reported a sales deterioration when compared across multiple YOY/QTQ (-1% to -5%, or possibly greater)",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Firm",
+      "factor": "Deterioration of Financial Performance: Topline (Sales)",
+      "clusters": [
+        {
+          "weighting": 9,
+          "stage": "3-10"
+        }
+      ]
+    },
+    {
+      "code": "S3b",
+      "question": "The company post profit losses in which the company post 'consistent (over an extended period)' profit losses when compared across multiple YOY/QTQ (-1% to -5%, or possibly greater)",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Firm",
+      "factor": "Deterioration of Financial Performance: Bottom Line (Profits)",
+      "clusters": [
+        {
+          "weighting": 8,
+          "stage": "3-10"
+        }
+      ]
+    },
+    {
+      "code": "S12",
+      "question": "The company conducted a material acquisition and/or spun off underperforming subsidiaries to address an underperforming business",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Internal",
@@ -201,6 +231,7 @@
       ]
     },
     {
+      "code": "S13",
       "question": "The company has adopted a strategy to diversify its product and services away from the core",
       "questionType": "scale",
       "type": "Symptom",
@@ -215,6 +246,7 @@
       ]
     },
     {
+      "code": "S14",
       "question": "The company was acquired into PE firm or new Parent Organization, or was spun off by a PE firm or Parent Organization",
       "questionType": "scale",
       "type": "Symptom",
@@ -233,7 +265,23 @@
       ]
     },
     {
-      "question": "Performance of core products and services have slowed and/or lost market share",
+      "code": "S7b",
+      "question": "The company's stock price has persistently drifted downward YOY for an extended period of time ( across 1-3 years, or possibly greater)",
+      "questionType": "scale",
+      "type": "Symptom",
+      "domain": "Internal",
+      "subDomain": "Firm",
+      "factor": "Steep Decline in Stock Price and/or Exchange Delisting",
+      "clusters": [
+        {
+          "weighting": 5,
+          "stage": "3-10"
+        }
+      ]
+    },
+    {
+      "code": "S15",
+      "question": "Performance of core products and services have slowed and/or lost considerable market share",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Internal",
@@ -247,7 +295,8 @@
       ]
     },
     {
-      "question": "The Company adopted a turnaround or restructure attempt which ultimately made the company financially worse and/or failed to address critical issues",
+      "code": "S16",
+      "question": "The company adopted a turnaround or restructure attempt which ultimately made the company financially worse and/or failed to address critical issues",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Internal",
@@ -267,7 +316,9 @@
 
 
     {
+      "code": "F1",
       "question": "The company faces threatening and market share eroding competition from multiple sources and types of competition (peer incumbents, disruptive new entrants, and/or big-box businesses)",
+      "counterQuestion": "How would you rate the firms ability to defend/compete against these threatening competitive forces?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Immediate",
@@ -275,27 +326,14 @@
       "factor": "Increasing and/or Aggressive Competitive Rivalry",
       "clusters": [
         {
-          "weighting": 8,
-          "stage": "0-2"
-        },
-        {
-          "weighting": 6,
-          "stage": "3-10"
-        },
-        {
-          "weighting": 4,
-          "stage": ">20"
-        },
-        {
-          "weighting": 19,
-          "stage": "all"
+          "weighting": 19
         }
       ]
     },
-
-
     {
-      "question": "Management made strategic decisions that were outright wrong and/or materially unfavorable to the business (post strategy execution result) ",
+      "code": "F2",
+      "question": "Management has made strategic choices and decisions that were outright wrong and/or materially unfavorable to the business (post-strategy execution result)",
+      "counterQuestion": "How satisfied are you that the firm's management have the capabilities and competences to rectify and address the poor strategic choices and decisions made in the past?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -303,78 +341,14 @@
       "factor": "Inferior management quality and skill: Strategic Errors",
       "clusters": [
         {
-          "weighting": 9,
-          "stage": "3-10"
-        },
-        {
-          "weighting": 7,
-          "stage": "11-20"
-        },
-        {
-          "weighting": 5,
-          "stage": ">20"
-        },
-        {
-          "weighting": 17,
-          "stage": "all"
+          "weighting": 17
         }
       ]
     },
     {
-      "question": "The company has experienced significant short-term growth and/or adopted a rapid expansion strategy, either domestically or internationally, that aims to significantly grow their footprint and potentially propelled them to a dominant and highly successful company in their industry (i.e. - widespread store expansion, aggressive acquisition strategy, etc.)",
-      "questionType": "scale",
-      "type": "Factor",
-      "domain": "Internal",
-      "subDomain": "Management: Strategic Focus",
-      "factor": "Management Strategic Focus: Aggressive, Ambitious and/or Risky Endeavors",
-      "clusters": [
-        {
-          "weighting": 8,
-          "stage": "3-10"
-        },
-        {
-          "weighting": 13,
-          "stage": "11-20"
-        },
-        {
-          "weighting": 6,
-          "stage": ">20"
-        },
-        {
-          "weighting": 13,
-          "stage": "all"
-        }
-      ]
-    },
-    {
-      "question": "Management has shown inferior capabilities to address, gauge, understand and/or failure to anticipate material business-related matters",
-      "questionType": "scale",
-      "type": "Factor",
-      "domain": "Internal",
-      "subDomain": "Management: Decision, Skills and Qualities",
-      "factor": "Inferior management quality and skill: Strategic Foresight",
-      "clusters": [
-        {
-          "weighting": 7,
-          "stage": "3-10"
-        },
-        {
-          "weighting": 5,
-          "stage": ">20"
-        },
-        {
-          "weighting": 14,
-          "stage": "all"
-        }
-      ]
-    },
-
-
-
-
-
-    {
-      "question": "Management respond to a changing industry landscape and/or competitive environment using proven strategies and tactics that allowed them to achieve success in past",
+      "code": "F3",
+      "question": "******Management respond to a changing industry landscape and/or competitive environment using proven strategies and tactics that allowed them to achieve success in past",
+      "counterQuestion": "How would you rate management's ability to adopt new strategies when responding to a changing industry landscape and/or competitive environment",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -382,13 +356,14 @@
       "factor": "Management Cognitive Inertia: Responding to change in environment",
       "clusters": [
         {
-          "weighting": 15,
-          "stage": "all"
+          "weighting": 15
         }
       ]
     },
     {
+      "code": "F4",
       "question": "Customers have shown a change in preference or demand for core products and services of the organization",
+      "counterQuestion": "How would you rate the firms ability to successfully navigate this change in customers behavior and realign with their preferences?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Immediate",
@@ -396,13 +371,44 @@
       "factor": "Changes in consumer tastes, demand or market power",
       "clusters": [
         {
-          "weighting": 14,
-          "stage": "all"
+          "weighting": 14
         }
       ]
     },
     {
+      "code": "F5",
+      "question": "Management has shown inferior capabilities to address, gauge, understand and/or failure to anticipate material business-related matters",
+      "counterQuestion": "How satisfied are you that the firm's management have the capabilities and competences to improve upon their strategic foresight flaws to rectify past events and prevent future events?",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Management: Decision, Skills and Qualities",
+      "factor": "Inferior management quality and skill: Strategic Foresight",
+      "clusters": [
+        {
+          "weighting": 14
+        }
+      ]
+    },
+    {
+      "code": "F6",
+      "question": "The company has experienced significant short-term growth and/or adopted a rapid expansion strategy, either domestically or internationally, that aims to significantly grow their footprint and potentially propelled them to a dominant and highly successful company in their industry (i.e. - widespread store expansion, aggressive acquisition strategy, etc.)",
+      "counterQuestion": "How would you rate the firms ability to manage this aggressive growth over the long-term",
+      "questionType": "scale",
+      "type": "Factor",
+      "domain": "Internal",
+      "subDomain": "Management: Strategic Focus",
+      "factor": "Management Strategic Focus: Aggressive, Ambitious and/or Risky Endeavors",
+      "clusters": [
+        {
+          "weighting": 13
+        }
+      ]
+    },
+    {
+      "code": "F7",
       "question": "The company lacks quality resources and core competencies to effective compete, manage a changing environment and/or fundamentally maintain the operations",
+      "counterQuestion": "How would you rate the firms ability to create new and sustainable quality resources and core competencies?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -410,13 +416,14 @@
       "factor": "Business Model: lack/loss/misallocation of quality resources and distinctive competencies",
       "clusters": [
         {
-          "weighting": 11,
-          "stage": "all"
+          "weighting": 11
         }
       ]
     },
     {
+      "code": "F8",
       "question": "The company appears to underestimate the need for marketing and/or a poor undifferentiated marketing strategy",
+      "counterQuestion": "How would you rate the firms ability to implement a new and improved marketing strategy?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -424,13 +431,14 @@
       "factor": "Ineffective processes and systems: Marketing, Marketing Mix and/or Branding",
       "clusters": [
         {
-          "weighting": 9,
-          "stage": "all"
+          "weighting": 9
         }
       ]
     },
     {
+      "code": "F9",
       "question": "The company is financially vulnerable to a recessionary downturn",
+      "counterQuestion": "How satisfied are you that the firm would successfully navigate a recessionary downturn",
       "questionType": "scale",
       "type": "Factor",
       "domain": "General",
@@ -438,13 +446,14 @@
       "factor": "Changes in Economic Factors: Recessionary Downturn",
       "clusters": [
         {
-          "weighting": 8,
-          "stage": "all"
+          "weighting": 8
         }
       ]
     },
     {
-      "question": "The company appears overwhelmed by a high debt burden loading on the company during a past buyout",
+      "code": "F10",
+      "question": "The company appears overwhelmed by a high debt burden loaded on the company during a past buyout",
+      "counterQuestion": "How would you rate the firms ability to manage this debt burden?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -452,13 +461,14 @@
       "factor": "Business Model: Constrained by Leveraged Buyout Debt",
       "clusters": [
         {
-          "weighting": 8,
-          "stage": "all"
+          "weighting": 8
         }
       ]
     },
     {
+      "code": "F11",
       "question": "Management has shown naivety (nonchalant action) and/or complacency (slow action) in effectively responding to a changing industry landscape and/or competitive environment",
+      "counterQuestion": "How satisfied are you that the firm's management have the capabilities and competences to act proactively and with more engagement to effectively respond to a changing industry landscape and/or competitive environment?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -466,13 +476,14 @@
       "factor": "Management Cognitive Inertia: Responding to change in environment (Complacency)",
       "clusters": [
         {
-          "weighting": 8,
-          "stage": "all"
+          "weighting": 8
         }
       ]
     },
     {
+      "code": "F12",
       "question": "The company's industry is facing wide-ranging disruption, turmoil and/or change (Consolidation, change in investor confidence, etc.)",
+      "counterQuestion": "How would you rate the firms ability to successful navigate wide-ranging disruption, turmoil and/or change the industry is facing?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Immediate",
@@ -480,13 +491,14 @@
       "factor": "Industry-wide Disruption and Complexities",
       "clusters": [
         {
-          "weighting": 7,
-          "stage": "all"
+          "weighting": 7
         }
       ]
     },
     {
+      "code": "F13",
       "question": "There is material disharmony inside of the organization amongst employees and/or lower management",
+      "counterQuestion": "How would you rate the firms ability to effectively address the internal stakeholder disharmony and create optimized relationships with internal stakeholders?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -494,13 +506,14 @@
       "factor": "Ineffective management systems: Internal Stakeholder Disharmony",
       "clusters": [
         {
-          "weighting": 7,
-          "stage": "all"
+          "weighting": 7
         }
       ]
     },
     {
-      "question": "The company has experience frequent turnover within the top-level executive team",
+      "code": "F14",
+      "question": "The company has experienced frequent turnover within the top-level executive team",
+      "counterQuestion": "How satisfied are you that the frequent management changes will enable the firm to find continued success and growth?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -508,13 +521,14 @@
       "factor": "Ineffective management systems: Frequently Changing Management Team",
       "clusters": [
         {
-          "weighting": 7,
-          "stage": "all"
+          "weighting": 7
         }
       ]
     },
     {
+      "code": "F15",
       "question": "The company is largely dependent on deteriorating low margin (low value) products or services",
+      "counterQuestion": "How would you rate the firms ability to find enhance value in their current array of products or services and/or diversify in new value generating products and/or services?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -522,27 +536,14 @@
       "factor": "Business Model: Low Value/Devaluing Business activities (Products/Service)",
       "clusters": [
         {
-          "weighting": 6,
-          "stage": "all"
+          "weighting": 6
         }
       ]
     },
     {
-      "question": "The company appears overwhelmed by a high debt burden loaded on the company during past buyout",
-      "questionType": "scale",
-      "type": "Factor",
-      "domain": "Internal",
-      "subDomain": "Firm: Ineffective processes and systems",
-      "factor": "Structural Inertia: Rigidity in Strategic Action",
-      "clusters": [
-        {
-          "weighting": 6,
-          "stage": "all"
-        }
-      ]
-    },
-    {
-      "question": "Management appear resistant to change in light of an changing industry landscape and/or competitive environment",
+      "code": "F16",
+      "question": "Management appear resistant to evolve the business strategy or operations in light of material changes occurring in the industry landscape and/or competitive environment",
+      "counterQuestion": "How satisfied are you that the firm's management have the will and motivation to evolve and effectively respond to a changing industry landscape and/or competitive environment?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -550,13 +551,14 @@
       "factor": "Management Cognitive Inertia: Resistance to change",
       "clusters": [
         {
-          "weighting": 6,
-          "stage": "all"
+          "weighting": 6
         }
       ]
     },
     {
+      "code": "F17",
       "question": "Top level management appear very confident, somewhat arrogant, and ignorant as a result of the companies past success",
+      "counterQuestion": "How satisfied are you that the firm's management have the capabilities and will to look beyond the blinders and ignore past superior success in a humbling manner?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -564,13 +566,14 @@
       "factor": "Management Personality deficiencies: hubris leader (narcissist, arrogance, excessive pride, dangerous overconfidence)",
       "clusters": [
         {
-          "weighting": 6,
-          "stage": "all"
+          "weighting": 6
         }
       ]
     },
     {
+      "code": "F18",
       "question": "Top level management have conflicting self-interests which could materially influence their strategic decisions and behaviors",
+      "counterQuestion": "How would you rate the firms ability govern and manage any top level management conflicting self-interests?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -578,8 +581,7 @@
       "factor": "Management Personality deficiencies: Conflicting Self-Interests",
       "clusters": [
         {
-          "weighting": 6,
-          "stage": "all"
+          "weighting": 6
         }
       ]
     }
