@@ -73,6 +73,14 @@ h6 {
   font-weight: bold;
 }
 
+h6.counter-question {
+  margin-top: 30px;
+}
+
+h6.disabled {
+  color: #BBB;
+}
+
 label {
   color: inherit;
 }
@@ -92,4 +100,8 @@ label {
 
 table, th, td {
     border: 1px solid;
+}
+
+.counter-question {
+  margin-left: 50px;
 }

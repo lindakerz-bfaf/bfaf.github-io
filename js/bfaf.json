@@ -326,7 +326,8 @@
       "factor": "Increasing and/or Aggressive Competitive Rivalry",
       "clusters": [
         {
-          "weighting": 19
+          "weighting": 19,
+          "stage": "factor"
         }
       ]
     },
@@ -341,7 +342,8 @@
       "factor": "Inferior management quality and skill: Strategic Errors",
       "clusters": [
         {
-          "weighting": 17
+          "weighting": 17,
+          "stage": "factor"
         }
       ]
     },
@@ -356,7 +358,8 @@
       "factor": "Management Cognitive Inertia: Responding to change in environment",
       "clusters": [
         {
-          "weighting": 15
+          "weighting": 15,
+          "stage": "factor"
         }
       ]
     },
@@ -371,7 +374,8 @@
       "factor": "Changes in consumer tastes, demand or market power",
       "clusters": [
         {
-          "weighting": 14
+          "weighting": 14,
+          "stage": "factor"
         }
       ]
     },
@@ -386,7 +390,8 @@
       "factor": "Inferior management quality and skill: Strategic Foresight",
       "clusters": [
         {
-          "weighting": 14
+          "weighting": 14,
+          "stage": "factor"
         }
       ]
     },
@@ -401,7 +406,8 @@
       "factor": "Management Strategic Focus: Aggressive, Ambitious and/or Risky Endeavors",
       "clusters": [
         {
-          "weighting": 13
+          "weighting": 13,
+          "stage": "factor"
         }
       ]
     },
@@ -416,7 +422,8 @@
       "factor": "Business Model: lack/loss/misallocation of quality resources and distinctive competencies",
       "clusters": [
         {
-          "weighting": 11
+          "weighting": 11,
+          "stage": "factor"
         }
       ]
     },
@@ -431,7 +438,8 @@
       "factor": "Ineffective processes and systems: Marketing, Marketing Mix and/or Branding",
       "clusters": [
         {
-          "weighting": 9
+          "weighting": 9,
+          "stage": "factor"
         }
       ]
     },
@@ -446,7 +454,8 @@
       "factor": "Changes in Economic Factors: Recessionary Downturn",
       "clusters": [
         {
-          "weighting": 8
+          "weighting": 8,
+          "stage": "factor"
         }
       ]
     },
@@ -461,7 +470,8 @@
       "factor": "Business Model: Constrained by Leveraged Buyout Debt",
       "clusters": [
         {
-          "weighting": 8
+          "weighting": 8,
+          "stage": "factor"
         }
       ]
     },
@@ -476,7 +486,8 @@
       "factor": "Management Cognitive Inertia: Responding to change in environment (Complacency)",
       "clusters": [
         {
-          "weighting": 8
+          "weighting": 8,
+          "stage": "factor"
         }
       ]
     },
@@ -491,7 +502,8 @@
       "factor": "Industry-wide Disruption and Complexities",
       "clusters": [
         {
-          "weighting": 7
+          "weighting": 7,
+          "stage": "factor"
         }
       ]
     },
@@ -506,7 +518,8 @@
       "factor": "Ineffective management systems: Internal Stakeholder Disharmony",
       "clusters": [
         {
-          "weighting": 7
+          "weighting": 7,
+          "stage": "factor"
         }
       ]
     },
@@ -521,7 +534,8 @@
       "factor": "Ineffective management systems: Frequently Changing Management Team",
       "clusters": [
         {
-          "weighting": 7
+          "weighting": 7,
+          "stage": "factor"
         }
       ]
     },
@@ -536,7 +550,8 @@
       "factor": "Business Model: Low Value/Devaluing Business activities (Products/Service)",
       "clusters": [
         {
-          "weighting": 6
+          "weighting": 6,
+          "stage": "factor"
         }
       ]
     },
@@ -551,7 +566,8 @@
       "factor": "Management Cognitive Inertia: Resistance to change",
       "clusters": [
         {
-          "weighting": 6
+          "weighting": 6,
+          "stage": "factor"
         }
       ]
     },
@@ -566,7 +582,8 @@
       "factor": "Management Personality deficiencies: hubris leader (narcissist, arrogance, excessive pride, dangerous overconfidence)",
       "clusters": [
         {
-          "weighting": 6
+          "weighting": 6,
+          "stage": "factor"
         }
       ]
     },
@@ -581,7 +598,8 @@
       "factor": "Management Personality deficiencies: Conflicting Self-Interests",
       "clusters": [
         {
-          "weighting": 6
+          "weighting": 6,
+          "stage": "factor"
         }
       ]
     }

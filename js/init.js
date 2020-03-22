@@ -24,7 +24,7 @@ var PASS_STAGE_WEIGHT = 0.75
 var PAGES = [
   {stage:'0-2', type: 'Symptom'},
   {stage:'3-10', type: 'Symptom', showIf: function(results){
-    return getStageWeight('0-2', results) < PASS_STAGE_WEIGHT
+    return getGroupWeight('0-2', results) < PASS_STAGE_WEIGHT
   }},
   {type: 'Factor'}
 ]
@@ -58,7 +58,7 @@ function scaleHtml(question, key) {
 }
 
 function counterScaleHtml(question, key) {
-  var html = "<h6>" + question.counterQuestion + "</h6>";
+  var html = "<h6 class='counter-question disabled'>" + question.counterQuestion + "</h6>";
   html += "<div class='form-question-answer counter-question'>";
   html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='always' disabled> <span>Always</span> </label> </div>";
   html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='often' disabled> <span>Often</span> </label> </div>";
@@ -67,26 +67,6 @@ function counterScaleHtml(question, key) {
   html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='never' disabled> <span>Never</span> </label> </div>";
   html += "</div>";
   return html;
-}
-
-function getStageWeight(stage, results){
-  var reducer = function(total, result){
-    if(result.stage === stage && result.weightedValue && result.weightedValue.stage){
-      return total + result.weightedValue.stage
-    }
-    return total
-  }
-  return (results || []).reduce(reducer, 0)
-}
-
-function getTotalWeight(stage, questions){
-  var totalWeight = 0
-  $.each(questions, function(index, question){
-    $.each(question.clusters, function(index, cluster){
-      if(cluster.stage === stage || !stage){ totalWeight += cluster.weighting }
-    })
-  })
-  return totalWeight
 }
 
 function getResponseValue(responseText) {
@@ -119,38 +99,49 @@ function displayResults(results) {
     categories[type][domainKey][factor] = categories[type][domainKey][factor] || {}
     categories[type][domainKey][factor][stage] = result.weightedValue.stage
   });
+
+  var summaryHtml = "<p><strong>Stage 0-2 total score:</strong> " + getGroupWeight('0-2', results) + "</p>";
+  summaryHtml += "<p><strong>Stage 3-10 total score:</strong> " + getGroupWeight('3-10', results) + "</p>";
+  summaryHtml += "<p><strong>Stage 11-20 total score:</strong> " + getGroupWeight('11-20', results) + "</p>";
+  summaryHtml += "<p><strong>Factors total score:</strong> " + getGroupWeight('Factor', results, 'type') + "</p>";
+  $(".factors").append(summaryHtml);
+
   var html = ''
   var tableHtml = '<table>'
   tableHtml += '<tr>'
   tableHtml += '<th>Type</th>'
   tableHtml += '<th>Domain</th>'
   tableHtml += '<th>Factor</th>'
-  $.each(SORTED_STAGES, function(index, stage){
-    tableHtml += '<th>' + stage + ' Years</th>'
-  })
+  // $.each(SORTED_STAGES, function(index, stage){
+  //   tableHtml += '<th>' + stage + ' Years</th>'
+  // })
+  tableHtml += '<th>Value</th>'
   tableHtml += '</tr>'
   $.each(categories, function(type, typeCats){
     $.each(typeCats, function(domainKey, domainCats){
-      html += '<h5>' + type + ': ' + domainKey + '</h5>'
-      $.each(domainCats, function(factor, factorCats){
-        html += '<h6>' + factor + '</h6>'
-        tableHtml += '<tr>'
-        tableHtml += '<td>' + type + '</td>'
-        tableHtml += '<td>' + domainKey + '</td>'
-        tableHtml += '<td>' + factor + '</td>'
-        $.each(SORTED_STAGES, function(index, stage){
-          if(factorCats[stage] != null){
-            var value = factorCats[stage]
-            tableHtml += '<td>' + numeral(value).format('0.00%') + '</td>'
-          } else {
-            tableHtml += '<td />'
-          }
+      if(type == "Factor") {
+        // html += '<h5>' + type + ': ' + domainKey + '</h5>'
+        $.each(domainCats, function(factor, factorCats){
+          // html += '<h6>' + factor + '</h6>'
+          tableHtml += '<tr>'
+          tableHtml += '<td>' + type + '</td>'
+          tableHtml += '<td>' + domainKey + '</td>'
+          tableHtml += '<td>' + factor + '</td>'
+          // $.each(SORTED_STAGES, function(index, stage){
+          //   if(factorCats[stage] != null){
+          //     var value = factorCats[stage]
+          //     tableHtml += '<td>' + numeral(value).format('0.00%') + '</td>'
+          //   } else {
+          //     tableHtml += '<td />'
+          //   }
+          // })
+          tableHtml += '<td>' + factorCats['factor'] + '</td>'
+          tableHtml += '</tr>'
+          // $.each(factorCats, function(stage, value){
+          //   html += '<p>' + stage + ' = ' + numeral(value).format('0.00%') + '</p>'
+          // })
         })
-        tableHtml += '</tr>'
-        $.each(factorCats, function(stage, value){
-          html += '<p>' + stage + ' = ' + numeral(value).format('0.00%') + '</p>'
-        })
-      })
+      }
     })
   })
   tableHtml += '</table>'
@@ -242,6 +233,12 @@ function renderPage(questions){
 
 function onJSONLoaded(data){
   var questions = data.questions;
+  var totalWeightings = {}
+  totalWeightings['0-2'] = getTotalWeight('0-2', questions)
+  totalWeightings['3-10'] = getTotalWeight('3-10', questions)
+  totalWeightings['11-20'] = getTotalWeight('11-20', questions)
+  totalWeightings.factor = getTotalWeight('factor', questions)
+  totalWeightings.overall = getTotalWeight(null, questions)
   var page = getNextPage()
   var pageQns = []
   if(page){
@@ -251,7 +248,7 @@ function onJSONLoaded(data){
   var results = []
   $('#form-submit-button').on('click', function() {
     //TODO Validation
-    results = [].concat(results, calculateResults(pageQns));
+    results = [].concat(results, calculateResults(pageQns, totalWeightings));
     var page = getNextPage(results)
     if(page){
       pageQns = filterQuestions(questions, page.type, page.stage)
@@ -266,12 +263,18 @@ function onJSONLoaded(data){
   $("#auto-populate").on("click", function(){ autoPopulateForm(questions) });
   $(document).on('click', 'input[type="radio"]', function(){
     var key = $(this).attr('data-id')
-    var disabled = $(this).val() === 'never'
-    $('.counter-question input[data-id="counter-'+ key + '"]').attr('disabled', disabled)
+    var isNever = $(this).val() === 'never'
+    var disabled = isNever
+    $('.counter-question input[data-id="counter-'+ key + '"]').attr('disabled', disabled).prop('checked', false)
+    if(isNever) {
+      $(this).parent().parent().parent().next().addClass("disabled")
+    } else {
+      $(this).parent().parent().parent().next().removeClass("disabled")
+    }
   })
 }
 
-function calculateResults(questions) {
+function calculateResults(questions, totalWeightings) {
   var responses = []
   $("form input:checked").each(function(key, response) {
     // if(key == $(response).attr("data-id")) {
@@ -293,8 +296,8 @@ function calculateResults(questions) {
       }
       var question = questions[id]
       $.each(question && question.clusters, function(clusterIndex, cluster){
-        var totalStageWeight = getTotalWeight(cluster.stage, questions) || 1
-        var totalWeight = getTotalWeight(null, questions) || 1
+        var totalStageWeight = totalWeightings[cluster.stage] || cluster.weighting
+        var totalWeight = totalWeightings.overall || cluster.weighting
         var weightedValue = cluster.weighting*netResponseValue
         responses.push({
             code: question.code,
@@ -316,6 +319,27 @@ function calculateResults(questions) {
     // }
   });
   return responses;
+}
+
+function getGroupWeight(matchValue, results, matchKey){
+  matchKey = matchKey || 'stage'
+  var reducer = function(total, result){
+    if(result[matchKey] === matchValue && result.weightedValue && result.weightedValue.stage){
+      return total + result.weightedValue.stage
+    }
+    return total
+  }
+  return (results || []).reduce(reducer, 0)
+}
+
+function getTotalWeight(stage, questions){
+  var totalWeight = 0
+  $.each(questions, function(index, question){
+    $.each(question.clusters, function(index, cluster){
+      if(cluster.stage === stage || stage == null){ totalWeight += cluster.weighting }
+    })
+  })
+  return totalWeight
 }
 
 function renderChart(){
