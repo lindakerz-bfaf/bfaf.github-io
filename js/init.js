@@ -105,6 +105,17 @@ function displayResults(results) {
   summaryHtml += "<p><strong>Stage 11-20 total score:</strong> " + getGroupWeight('11-20', results) + "</p>";
   summaryHtml += "<p><strong>Factors total score:</strong> " + getGroupWeight('Factor', results, 'type') + "</p>";
   $(".factors").append(summaryHtml);
+  let bubbleResults = []
+  $.each(results, function(index, result){
+    if(result.type === 'Factor' && result.value > 0){
+      bubbleResults.push(result)
+    }
+  })
+  var bubbleSelector = '#bubble-late'
+  var elem = $(bubbleSelector)
+  var width = elem.innerWidth()
+  var height = elem.innerHeight()
+  window.bfaf.drawBubbleChart(bubbleResults, width, height, bubbleSelector)
 
   var html = ''
   var tableHtml = '<table>'

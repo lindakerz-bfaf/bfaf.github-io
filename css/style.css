@@ -105,3 +105,21 @@ table, th, td {
 .counter-question {
   margin-left: 50px;
 }
+
+.factor-chart {
+  border: 1px solid;
+  height: 70PX;
+  text-align: center;
+}
+
+.versus-section {
+  width: 25%;
+  height: 500px;
+  float: left;
+  text-align: center;
+}
+
+.versus-bubble-chart {
+  width: 100%;
+  height: 100%;
+}
