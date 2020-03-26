@@ -76,33 +76,77 @@
           <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
 
           <div class="row">
-            <div class="col s12 l8">
-              <div class="factor-chart">General Environment (Macro)</div>
-              <div class="factor-chart">Immediate Environment (Micro)</div>
-              <div class="factor-chart">The Firm (Company)</div>
-              <div class="versus-container" style="width: 100%;height: 502px;border: 1px solid;">
-                <div class="versus-section versus-section-1" style="background: #5bb356;">
-                  <div>Success</div>
+            <div class="col s12 l4">
+              <div class="card">
+                <h5>Your score</h5>
+                <div class="score-container">
+                  <canvas id="score-dial"></canvas>
+                  <div class="score"></div>
                 </div>
-                <div class="versus-section versus-section-2" style="background: #ffbd44;">
-                  <div>Early Stage Failure</div>
-                  <svg id="bubble-early" class="versus-bubble-chart"></svg>
-                </div>
-                <div class="versus-section versus-section-3" style="background: #ffe14d;">
-                  <div>Mid Stage Failure</div>
-                  <svg id="bubble-mid" class="versus-bubble-chart"></svg>
-                </div>
-                <div class="versus-section versus-section-4" style="background: #fd7878;">
-                  <div>Late Stage Failure</div>
-                  <svg id="bubble-late" class="versus-bubble-chart"></svg>
-                </div>
+                <br><br>
+                <h5>Score interpretation</h5>
+                <table>
+                  <tr>
+                    <th>Score</th>
+                    <th>Comment</th>
+                  </tr>
+                  <tr>
+                    <td>0-25%</td>
+                    <td>All great!</td>
+                  </tr>
+                  <tr>
+                    <td>26-50%</td>
+                    <td>Ehhh..</td>
+                  </tr>
+                  <tr>
+                    <td>51-75%</td>
+                    <td>Uhhhh, maybe look into this..</td>
+                  </tr>
+                  <tr>
+                    <td>76-100%</td>
+                    <td>Eek! Scary!</td>
+                  </tr>
+                </table>
               </div>
-              <!-- <canvas id="myChart" width="600" height="600"></canvas> -->
+            </div>
+            <div class="col s12 l8">
+              <div class="card">
+                <h5>Versus framework results</h5>
+                <div class="factor-row factor-row-1">General Environment (Macro)</div>
+                <div class="factor-row factor-row-2">Immediate Environment (Micro)</div>
+                <div class="factor-row factor-row-3">The Firm (Company)</div>
+                <div class="versus-container">
+                  <div class="versus-section versus-section-1">
+                    <div>Success</div>
+                  </div>
+                  <div class="versus-section versus-section-2">
+                    <div>Early Stage Failure</div>
+                    <svg id="bubble-early" class="versus-bubble-chart"></svg>
+                  </div>
+                  <div class="versus-section versus-section-3">
+                    <div>Mid Stage Failure</div>
+                    <svg id="bubble-mid" class="versus-bubble-chart"></svg>
+                  </div>
+                  <div class="versus-section versus-section-4">
+                    <div>Late Stage Failure</div>
+                    <svg id="bubble-late" class="versus-bubble-chart"></svg>
+                  </div>
+                  <img src="./chart-bg.png" />
+                </div>
+                <!-- <canvas id="myChart" width="600" height="600"></canvas> -->
+              </div>
             </div>
           </div>
 
           <div class="factors">
+            <div class="row">
+              <div class="col s12">
+                <div class="card">
+                  <h5>Risk factors and mitigations</h5>
 
+                </div>
+              </div>
+            </div>
           </div>
           <div class="responses">
             <h6>Raw Responses</h6>

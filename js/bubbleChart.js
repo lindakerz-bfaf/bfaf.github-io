@@ -54,12 +54,12 @@ function bubbleChart(width, height) {
   // Nice looking colors - no reason to buck the trend
   var fillColor = d3.scale.ordinal()
     .domain(['Internal', 'Immediate', 'General'])
-    .range(['#d84b2a', '#beccae', '#7aa25c']);
+    .range(['#aabbec', '#5C79D1', '#0A2463']);
 
   // Sizes bubbles based on their area instead of raw radius
   var radiusScale = d3.scale.pow()
-    .exponent(0.5)
-    .range([2, 30]);
+    //.exponent(0.5)
+    .range([2, 25]);
 
   /*
    * This data manipulation function takes the raw data from
@@ -81,7 +81,7 @@ function bubbleChart(width, height) {
       return {
         id: d.code,
         radius: radiusScale(+d.value),
-        value: d.value,
+        value: d.weightedValue.stage,
         name: d.factor,
         group: d.domain,
         x: Math.random() * width,
@@ -196,15 +196,18 @@ function bubbleChart(width, height) {
     // change outline to indicate hover state.
     d3.select(this).attr('stroke', 'black');
 
-    var content = '<span class="name">Title: </span><span class="value">' +
+    var risk = 'Low';
+    if(d.radius > 20) risk = 'Very High'
+    else if(d.radius > 14) risk = 'High'
+    else if(d.radius > 8) risk = 'Medium'
+
+    var content = '<h7 class="value">' +
                   d.name +
-                  '</span><br/>' +
-                  '<span class="name">Amount: </span><span class="value">$' +
-                  addCommas(d.value) +
-                  '</span><br/>' +
-                  '<span class="name">Year: </span><span class="value">' +
-                  d.year +
+                  '</h7><br/><br/>' +
+                  '<span class="value"><strong>Risk:</strong> ' +
+                   risk +
                   '</span>';
+
     tooltip.showTooltip(content, d3.event);
   }
 

@@ -48,11 +48,11 @@ function scaleHtml(question, key) {
     html += "<p>" + question.info + "</p>";
   }
   html += "<div class='form-question-answer'>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='always'> <span>Always</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='often'> <span>Often</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='sometimes'> <span>Sometimes</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='rarely'> <span>Rarely</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='never'> <span>Never</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='always'> <span>Strongly Agree</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='often'> <span>Agree</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='sometimes'> <span>Moderately</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='rarely'> <span>Slightly</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='" + key + "' name='" + question.id + "' type='radio' value='never'> <span>Not at all</span> </label> </div>";
   html += "</div>";
   return html;
 }
@@ -60,11 +60,11 @@ function scaleHtml(question, key) {
 function counterScaleHtml(question, key) {
   var html = "<h6 class='counter-question disabled'>" + question.counterQuestion + "</h6>";
   html += "<div class='form-question-answer counter-question'>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='always' disabled> <span>Always</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='often' disabled> <span>Often</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='sometimes' disabled> <span>Sometimes</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='rarely' disabled> <span>Rarely</span> </label> </div>";
-  html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='never' disabled> <span>Never</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='always' disabled> <span>Very Good</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='often' disabled> <span>Good</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='sometimes' disabled> <span>Fair</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='rarely' disabled> <span>Poor</span> </label> </div>";
+  html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='never' disabled> <span>Very Poor</span> </label> </div>";
   html += "</div>";
   return html;
 }
@@ -87,6 +87,35 @@ function getResponseValue(responseText) {
   }
 }
 
+function getFailureScore(results, failureStage) {
+  var factorsTotalScore = getGroupWeight('Factor', results, 'type');
+  var failureStageScore = 0;
+
+  if(failureStage == 'late') failureStageScore = getGroupWeight('0-2', results);
+  if(failureStage == 'mid') failureStageScore = getGroupWeight('3-10', results);
+  if(failureStage == 'early') failureStageScore = getGroupWeight('11-20', results);
+
+  var failureScore = (factorsTotalScore + failureStageScore) * 100;
+  failureScore = Math.round(failureScore);
+  if(failureScore > 100) failureScore = 100;
+  return failureScore / 100;
+}
+
+function getFailureStage(results) {
+  var lateStageScore = getGroupWeight('0-2', results);
+  var midStageScore = getGroupWeight('3-10', results);
+  var earlyStageScore = getGroupWeight('11-20', results);
+
+  if(lateStageScore > 0.75) return 'late';
+  if(midStageScore > 0.75) return 'mid';
+  if(lateStageScore > 0.25 && midStageScore > 0.25) {
+    if(lateStageScore > midStageScore) return 'late';
+    else return 'mid';
+  }
+  if(earlyStageScore > 0.25) return 'early';
+  return 'success'
+}
+
 function displayResults(results) {
   var categories = {};
   $.each(results, function(key, result) {
@@ -100,9 +129,13 @@ function displayResults(results) {
     categories[type][domainKey][factor][stage] = result.weightedValue.stage
   });
 
+  var stage = getFailureStage(results);
+  var score = getFailureScore(results, stage);
+
   var summaryHtml = "<p><strong>Stage 0-2 total score:</strong> " + getGroupWeight('0-2', results) + "</p>";
   summaryHtml += "<p><strong>Stage 3-10 total score:</strong> " + getGroupWeight('3-10', results) + "</p>";
   summaryHtml += "<p><strong>Stage 11-20 total score:</strong> " + getGroupWeight('11-20', results) + "</p>";
+  summaryHtml += "<p><strong>Failure stage:</strong> " + stage + "</p>"
   summaryHtml += "<p><strong>Factors total score:</strong> " + getGroupWeight('Factor', results, 'type') + "</p>";
   $(".factors").append(summaryHtml);
   let bubbleResults = []
@@ -111,7 +144,12 @@ function displayResults(results) {
       bubbleResults.push(result)
     }
   })
-  var bubbleSelector = '#bubble-late'
+
+  var percentScore = score * 100;
+  var percentRemain = 100 - percentScore;
+  renderDial(percentScore, percentRemain);
+
+  var bubbleSelector = '#bubble-' + stage
   var elem = $(bubbleSelector)
   var width = elem.innerWidth()
   var height = elem.innerHeight()
@@ -327,6 +365,7 @@ function calculateResults(questions, totalWeightings) {
             }
         })
       })
+
     // }
   });
   return responses;
@@ -351,6 +390,42 @@ function getTotalWeight(stage, questions){
     })
   })
   return totalWeight
+}
+
+function renderDial(score, remainder) {
+  $(".score").html(score + "%");
+  var dialColor = '#BBBBBB';
+  if(score >= 76) {
+    //red
+    dialColor = '#E84855';
+  } else if(score >= 51) {
+    //orange
+    dialColor = '#E89F47';
+  } else if(score >= 26) {
+    //yellow
+    dialColor = '#EDD447';
+  } else {
+    //green
+    dialColor = '#4BAF48';
+  }
+  var ctx = document.getElementById("score-dial").getContext("2d");
+  var myDoughnutChart = new Chart(ctx, {
+    type: 'doughnut',
+    data:{
+      datasets: [{
+        data: [score, remainder],
+        backgroundColor: [dialColor, '#E2E2E2']
+      }]
+    },
+    options: {
+      cutoutPercentage: 70,
+      rotation: Math.PI,
+      circumference: Math.PI,
+      tooltips: {
+         enabled: false
+       }
+    }
+  });
 }
 
 function renderChart(){
