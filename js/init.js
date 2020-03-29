@@ -29,6 +29,7 @@ var PAGES = [
   {type: 'Factor'}
 ]
 var currentPage = -1
+var questionCount = 0;
 
 function yesNoHtml(question, key) {
   var html = "<h6>" + question.question + "</h6>";
@@ -43,7 +44,8 @@ function yesNoHtml(question, key) {
 }
 
 function scaleHtml(question, key) {
-  var html = "<h6>" + question.question + "</h6>";
+  questionCount ++;
+  var html = "<h6>Q" + questionCount + ": " + question.question + "</h6>";
   if(question.info) {
     html += "<p>" + question.info + "</p>";
   }
@@ -58,7 +60,7 @@ function scaleHtml(question, key) {
 }
 
 function counterScaleHtml(question, key) {
-  var html = "<h6 class='counter-question disabled'>" + question.counterQuestion + "</h6>";
+  var html = "<h6 class='counter-question disabled'>Q" + questionCount + "b: " +  question.counterQuestion + "</h6>";
   html += "<div class='form-question-answer counter-question'>";
   html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='always' disabled> <span>Very Good</span> </label> </div>";
   html += "<div class='col s2'> <label> <input class='with-gap' data-id='counter-" + key + "' name='counter-" + question.id + "' type='radio' value='often' disabled> <span>Good</span> </label> </div>";
@@ -116,6 +118,56 @@ function getFailureStage(results) {
   return 'success'
 }
 
+function setupFailureGrid(results) {
+  $.each(results, function(index, result){
+    if(result.type === 'Factor' && result.value > 0){
+
+      $(".failure-factor-grid ." + result.code).show();
+      $(".failure-factor-grid .none").hide();
+
+      //todo: replace number values with very high, high, med, low
+      $(".failure-factor-grid ." + result.code + " .exposure").html(getSimplifiedStringRiskHtml(result.rawValue));
+      $(".failure-factor-grid ." + result.code + " .counter").html(getSimplifiedStringRiskHtml(result.counterValue));
+      var risk = result.rawValue - result.counterValue;
+      if(risk < 0) risk = 0;
+      $(".failure-factor-grid ." + result.code + " .risk").html(getSimplifiedStringRiskHtml(risk));
+    }
+  })
+}
+
+function getSimplifiedStringRiskHtml(risk) {
+  if(risk > 0.75) return "<span class='very-high'>Very High</span>";
+  if(risk > 0.5) return "<span class='high'>High</span>";
+  if(risk > 0.25) return "<span class='medium'>Medium</span>";
+  if(risk > 0) return "<span class='low'>Low</span>";
+  if(risk == 0) return "None";
+}
+
+function setupVersusChart(results, stage) {
+  let bubbleResults = []
+  $.each(results, function(index, result){
+    if(result.type === 'Factor' && result.value > 0){
+      bubbleResults.push(result)
+    }
+  })
+
+  var bubbleSelector = '#bubble-' + stage
+  var elem = $(bubbleSelector)
+  var width = elem.innerWidth()
+  var height = elem.innerHeight()
+  window.bfaf.drawBubbleChart(bubbleResults, width, height, bubbleSelector)
+
+  $(".arrow").addClass("arrow-" + stage);
+
+  $(".versus-" + stage).show();
+}
+
+function setupOverallFailureScore(score) {
+  var percentScore = score * 100;
+  var percentRemain = 100 - percentScore;
+  renderDial(percentScore, percentRemain);
+}
+
 function displayResults(results) {
   var categories = {};
   $.each(results, function(key, result) {
@@ -132,70 +184,61 @@ function displayResults(results) {
   var stage = getFailureStage(results);
   var score = getFailureScore(results, stage);
 
+  setupVersusChart(results, stage);
+
+  setupFailureGrid(results)
+
+  setupOverallFailureScore(score)
+
+
   var summaryHtml = "<p><strong>Stage 0-2 total score:</strong> " + getGroupWeight('0-2', results) + "</p>";
   summaryHtml += "<p><strong>Stage 3-10 total score:</strong> " + getGroupWeight('3-10', results) + "</p>";
   summaryHtml += "<p><strong>Stage 11-20 total score:</strong> " + getGroupWeight('11-20', results) + "</p>";
   summaryHtml += "<p><strong>Failure stage:</strong> " + stage + "</p>"
   summaryHtml += "<p><strong>Factors total score:</strong> " + getGroupWeight('Factor', results, 'type') + "</p>";
-  $(".factors").append(summaryHtml);
-  let bubbleResults = []
-  $.each(results, function(index, result){
-    if(result.type === 'Factor' && result.value > 0){
-      bubbleResults.push(result)
-    }
-  })
+  $(".responses").append(summaryHtml);
 
-  var percentScore = score * 100;
-  var percentRemain = 100 - percentScore;
-  renderDial(percentScore, percentRemain);
-
-  var bubbleSelector = '#bubble-' + stage
-  var elem = $(bubbleSelector)
-  var width = elem.innerWidth()
-  var height = elem.innerHeight()
-  window.bfaf.drawBubbleChart(bubbleResults, width, height, bubbleSelector)
-
-  var html = ''
-  var tableHtml = '<table>'
-  tableHtml += '<tr>'
-  tableHtml += '<th>Type</th>'
-  tableHtml += '<th>Domain</th>'
-  tableHtml += '<th>Factor</th>'
-  // $.each(SORTED_STAGES, function(index, stage){
-  //   tableHtml += '<th>' + stage + ' Years</th>'
+  // var html = ''
+  // var tableHtml = '<table>'
+  // tableHtml += '<tr>'
+  // tableHtml += '<th>Type</th>'
+  // tableHtml += '<th>Domain</th>'
+  // tableHtml += '<th>Factor</th>'
+  // // $.each(SORTED_STAGES, function(index, stage){
+  // //   tableHtml += '<th>' + stage + ' Years</th>'
+  // // })
+  // tableHtml += '<th>Value</th>'
+  // tableHtml += '</tr>'
+  // $.each(categories, function(type, typeCats){
+  //   $.each(typeCats, function(domainKey, domainCats){
+  //     if(type == "Factor") {
+  //       // html += '<h5>' + type + ': ' + domainKey + '</h5>'
+  //       $.each(domainCats, function(factor, factorCats){
+  //         // html += '<h6>' + factor + '</h6>'
+  //         tableHtml += '<tr>'
+  //         tableHtml += '<td>' + type + '</td>'
+  //         tableHtml += '<td>' + domainKey + '</td>'
+  //         tableHtml += '<td>' + factor + '</td>'
+  //         // $.each(SORTED_STAGES, function(index, stage){
+  //         //   if(factorCats[stage] != null){
+  //         //     var value = factorCats[stage]
+  //         //     tableHtml += '<td>' + numeral(value).format('0.00%') + '</td>'
+  //         //   } else {
+  //         //     tableHtml += '<td />'
+  //         //   }
+  //         // })
+  //         tableHtml += '<td>' + factorCats['factor'] + '</td>'
+  //         tableHtml += '</tr>'
+  //         // $.each(factorCats, function(stage, value){
+  //         //   html += '<p>' + stage + ' = ' + numeral(value).format('0.00%') + '</p>'
+  //         // })
+  //       })
+  //     }
+  //   })
   // })
-  tableHtml += '<th>Value</th>'
-  tableHtml += '</tr>'
-  $.each(categories, function(type, typeCats){
-    $.each(typeCats, function(domainKey, domainCats){
-      if(type == "Factor") {
-        // html += '<h5>' + type + ': ' + domainKey + '</h5>'
-        $.each(domainCats, function(factor, factorCats){
-          // html += '<h6>' + factor + '</h6>'
-          tableHtml += '<tr>'
-          tableHtml += '<td>' + type + '</td>'
-          tableHtml += '<td>' + domainKey + '</td>'
-          tableHtml += '<td>' + factor + '</td>'
-          // $.each(SORTED_STAGES, function(index, stage){
-          //   if(factorCats[stage] != null){
-          //     var value = factorCats[stage]
-          //     tableHtml += '<td>' + numeral(value).format('0.00%') + '</td>'
-          //   } else {
-          //     tableHtml += '<td />'
-          //   }
-          // })
-          tableHtml += '<td>' + factorCats['factor'] + '</td>'
-          tableHtml += '</tr>'
-          // $.each(factorCats, function(stage, value){
-          //   html += '<p>' + stage + ' = ' + numeral(value).format('0.00%') + '</p>'
-          // })
-        })
-      }
-    })
-  })
-  tableHtml += '</table>'
-  $(".factors").append("<p>" + tableHtml + "</p><p>" + html + "</p>");
-  $(".responses").append("<p>" + JSON.stringify(results) + "</p>");
+  // tableHtml += '</table>'
+  // $(".factors").append("<p>" + tableHtml + "</p><p>" + html + "</p>");
+  // $(".responses").append("<p>" + JSON.stringify(results) + "</p>");
   return categories;
 }
 
@@ -241,6 +284,7 @@ function autoPopulateForm(questions, type, stage) {
     var option = options[result]
     $('input[data-id='+key+'][value='+option+']').prop("checked", true)
   });
+  window.scrollTo(0,document.body.scrollHeight);
 }
 
 function getRandomInt(min, max){
@@ -320,6 +364,12 @@ function onJSONLoaded(data){
     } else {
       $(this).parent().parent().parent().next().removeClass("disabled")
     }
+  })
+  $(".mitigation-link").click(function() {
+    $(this).parent().parent().next().show();
+  });
+  $(".close-row").click(function() {
+    $(this).parent().parent().hide();
   })
 }
 

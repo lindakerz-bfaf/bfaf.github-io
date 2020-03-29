@@ -54,7 +54,7 @@ function bubbleChart(width, height) {
   // Nice looking colors - no reason to buck the trend
   var fillColor = d3.scale.ordinal()
     .domain(['Internal', 'Immediate', 'General'])
-    .range(['#aabbec', '#5C79D1', '#0A2463']);
+    .range(['#9971c3', '#662ea2', '#300b58']);
 
   // Sizes bubbles based on their area instead of raw radius
   var radiusScale = d3.scale.pow()
