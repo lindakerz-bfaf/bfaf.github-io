@@ -144,10 +144,12 @@ function getSimplifiedStringRiskHtml(risk) {
 }
 
 function setupVersusChart(results, stage) {
-  let bubbleResults = []
+  var bubbleResults = []
+  var bubbleDomain = {}
   $.each(results, function(index, result){
     if(result.type === 'Factor' && result.value > 0){
       bubbleResults.push(result)
+      bubbleDomain[result.domain] = true
     }
   })
 
@@ -158,6 +160,10 @@ function setupVersusChart(results, stage) {
   window.bfaf.drawBubbleChart(bubbleResults, width, height, bubbleSelector)
 
   $(".arrow").addClass("arrow-" + stage);
+
+  if(!bubbleDomain["Internal"]) $(".arrow-1").hide();
+  if(!bubbleDomain["Immediate"]) $(".arrow-2").hide();
+  if(!bubbleDomain["General"]) $(".arrow-3").hide();
 
   $(".versus-" + stage).show();
 }
@@ -321,6 +327,7 @@ function renderPage(questions){
       $("#form-content").append(counterScaleHtml(question, index));
     }
   });
+  if(currentPage > 0) $(".framework-information").hide()
 }
 
 
@@ -359,7 +366,7 @@ function onJSONLoaded(data){
     var isNever = $(this).val() === 'never'
     var disabled = isNever
     $('.counter-question input[data-id="counter-'+ key + '"]').attr('disabled', disabled).prop('checked', false)
-    if(isNever) {
+    if(isNever && currentPage == 2) {
       $(this).parent().parent().parent().next().addClass("disabled")
     } else {
       $(this).parent().parent().parent().next().removeClass("disabled")
