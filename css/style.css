@@ -8,7 +8,7 @@
 
 nav ul a,
 nav .brand-logo {
-  color: #444;
+  color: #fff;
 }
 
 p {
@@ -16,7 +16,7 @@ p {
 }
 
 .sidenav-trigger {
-  color: #26a69a;
+  color: #fff;
 }
 
 .parallax-container {
@@ -28,6 +28,25 @@ p {
   .parallax-container .section {
     width: 100%;
   }
+
+.gradient {
+  background: #1a237e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1a237e, #020842);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1a237e, #020842); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient.icon-container h5,
+.gradient.icon-container p {
+  color: #FFFFFF;
+}
+
+.icon-container {
+  padding: 50px 0;
+}
+
+.img-center img {
+  width: 100%;
+}
 
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
@@ -57,7 +76,7 @@ footer.page-footer {
 }
 
 #index-banner {
-  padding: 80px 0 150px;
+  padding: 180px 0 230px;
 }
 
 #index-banner img {
@@ -66,6 +85,10 @@ footer.page-footer {
 
 #assessment-button {
   margin-top: 50px;
+}
+
+#framework-form {
+  padding: 30px 0;
 }
 
 h6 {

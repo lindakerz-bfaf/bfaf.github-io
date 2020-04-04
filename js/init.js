@@ -204,6 +204,10 @@ function displayResults(results) {
   summaryHtml += "<p><strong>Factors total score:</strong> " + getGroupWeight('Factor', results, 'type') + "</p>";
   $(".responses").append(summaryHtml);
 
+  $(".print").click(function() {
+    window.print();
+  })
+
   // var html = ''
   // var tableHtml = '<table>'
   // tableHtml += '<tr>'

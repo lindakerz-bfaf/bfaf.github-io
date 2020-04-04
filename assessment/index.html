@@ -7,11 +7,11 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection,print"/>
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection,print"/>
 </head>
 <body>
-  <nav class="white" role="navigation">
+  <nav class="black" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="/" class="brand-logo">Business Failure Assessment Framework</a>
       <ul class="right hide-on-med-and-down">
@@ -28,10 +28,10 @@
   </nav>
 
   <!-- FORM PAGE -->
-  <div id="framework-form">
+  <div id="framework-form" class="gradient">
 
   <div class="container framework-information">
-    <div class="section">
+    <div class="section card">
 
       <div class="row">
         <div class="col s12">
@@ -51,7 +51,7 @@
     </div>
   </div>
   <div class="container">
-    <div class="section">
+    <div class="section card">
 
       <div class="row">
         <div class="col s12">
@@ -61,7 +61,7 @@
           <form action="#">
             <div id="form-content"></div>
             <div class="row right">
-              <a id="form-submit-button" class="btn-large waves-effect waves-light teal lighten-1">Next</a>
+              <a id="form-submit-button" class="btn-large waves-effect waves-light indigo darken-2">Next</a>
             </div>
           </form>
         </div>
@@ -80,6 +80,7 @@
           <h3>Assessment Results Dashboard</h3>
           <p class="left-align light">Our research on large and mature failed organizations emphasized that as organizations continue along the continuum of existence, they are in a constant battle against various failure factors associated amongst three environment domains, they battle versus the internal firm environment (The Firm), versus the immediate environment (Micro) and versus the general environment (Macro). This results dashboard aims to portray a firm’s susceptibility to variables and indicators of impending business failure through (1) Producing an Overall Failure Score, (2) Utilizing the proposed framework to showcase the failure factors influencing an organization's failure position (3) Providing insights into the environment and associated factors that present the most significant risks to you.</p>
 
+          <p><a class="btn-large waves-effect waves-light indigo darken-2 print">Print</a></p>
           <div class="row">
             <div class="col s12 l4">
               <div class="card">
@@ -156,6 +157,7 @@
               <div class="col s12">
                 <div class="card">
                   <h5>Your Risk Factors and mitigations</h5>
+                  <p>The factors shown in the chart above are outlined here. If you would like to read more about the research behind why these factors contribute to business failure, click here.</p>
                   <table class="failure-factor-grid">
                     <tr>
                       <th>Source</th>
@@ -456,7 +458,7 @@
 </div>
 
 
-  <footer class="page-footer teal">
+  <footer class="page-footer indigo darken-4">
 
     <div class="footer-copyright">
       <div class="container">
