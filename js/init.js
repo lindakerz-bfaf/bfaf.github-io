@@ -118,6 +118,29 @@ function getFailureStage(results) {
   return 'success'
 }
 
+function setupFailureAndTrajectoryTotals(results, stage) {
+  var failureScore = getGroupWeight('Factor', results, 'type');
+  var failureScoreClass = getRiskClass(failureScore);
+
+  var failureStageScore = 0;
+
+  if(stage == 'late') failureStageScore = getGroupWeight('0-2', results);
+  if(stage == 'mid') failureStageScore = getGroupWeight('3-10', results);
+  if(stage == 'early') failureStageScore = getGroupWeight('11-20', results);
+
+  var failureTrajectory = (failureScore + failureStageScore) / 2;
+  var failureTrajectoryClass = getRiskClass(failureTrajectory);
+
+  failureScore = Math.round(failureScore * 100);
+  failureTrajectory = Math.round(failureTrajectory * 100);
+
+  $(".failure-score").html(failureScore);
+  $(".failure-trajectory").html(failureTrajectory);
+
+  $(".failure-score-table").find("td").not("." + failureScoreClass).removeClass();
+  $(".failure-trajectory-table").find("td").not("." + failureTrajectoryClass).removeClass();
+}
+
 function setupFailureGrid(results) {
   $.each(results, function(index, result){
     if(result.type === 'Factor' && result.value > 0){
@@ -125,22 +148,29 @@ function setupFailureGrid(results) {
       $(".failure-factor-grid ." + result.code).show();
       $(".failure-factor-grid .none").hide();
 
-      //todo: replace number values with very high, high, med, low
-      $(".failure-factor-grid ." + result.code + " .exposure").html(getSimplifiedStringRiskHtml(result.rawValue));
-      $(".failure-factor-grid ." + result.code + " .counter").html(getSimplifiedStringRiskHtml(result.counterValue));
+      $(".failure-factor-grid ." + result.code + " .exposure").html(getSimplifiedStringRiskHtml(result.rawValue)).addClass(getRiskClass(result.rawValue));
+      $(".failure-factor-grid ." + result.code + " .counter").html(getSimplifiedStringRiskHtml(result.counterValue)).addClass(getRiskClass(result.counterValue));
       var risk = result.rawValue - result.counterValue;
       if(risk < 0) risk = 0;
-      $(".failure-factor-grid ." + result.code + " .risk").html(getSimplifiedStringRiskHtml(risk));
+      $(".failure-factor-grid ." + result.code + " .risk").html(getSimplifiedStringRiskHtml(risk)).addClass(getRiskClass(risk));
     }
   })
 }
 
 function getSimplifiedStringRiskHtml(risk) {
-  if(risk > 0.75) return "<span class='very-high'>Very High</span>";
-  if(risk > 0.5) return "<span class='high'>High</span>";
-  if(risk > 0.25) return "<span class='medium'>Medium</span>";
-  if(risk > 0) return "<span class='low'>Low</span>";
-  if(risk == 0) return "None";
+  if(risk >= 0.75) return "Very High";
+  if(risk >= 0.5) return "High";
+  if(risk >= 0.25) return "Medium";
+  if(risk >= 0) return "Low";
+  else return "None";
+}
+
+function getRiskClass(risk) {
+  if(risk >= 0.75) return "very-high";
+  if(risk >= 0.5) return "high";
+  if(risk >= 0.25) return "medium";
+  if(risk >= 0) return "low";
+  else return "none";
 }
 
 function setupVersusChart(results, stage) {
@@ -190,11 +220,15 @@ function displayResults(results) {
   var stage = getFailureStage(results);
   var score = getFailureScore(results, stage);
 
+
+
   setupVersusChart(results, stage);
 
-  setupFailureGrid(results)
+  setupFailureGrid(results);
 
-  setupOverallFailureScore(score)
+  setupFailureAndTrajectoryTotals(results, stage);
+
+  //setupOverallFailureScore(score)
 
 
   var summaryHtml = "<p><strong>Stage 0-2 total score:</strong> " + getGroupWeight('0-2', results) + "</p>";
@@ -371,13 +405,16 @@ function onJSONLoaded(data){
     var disabled = isNever
     $('.counter-question input[data-id="counter-'+ key + '"]').attr('disabled', disabled).prop('checked', false)
     if(isNever && currentPage == 2) {
-      $(this).parent().parent().parent().next().addClass("disabled")
+      if(!$(this).parent().parent().parent().hasClass("counter-question")) {
+        $(this).parent().parent().parent().next().addClass("disabled")
+      }
+
     } else {
       $(this).parent().parent().parent().next().removeClass("disabled")
     }
   })
   $(".mitigation-link").click(function() {
-    $(this).parent().parent().next().show();
+    $(this).parent().parent().next().toggle();
   });
   $(".close-row").click(function() {
     $(this).parent().parent().hide();

@@ -15,13 +15,15 @@
     <div class="nav-wrapper container">
       <a id="logo-container" href="/" class="brand-logo">Business Failure Assessment Framework</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/">Home/About</a></li>
-        <li class="active-item"><a href="/assessment">Assessment</a></li>
+        <li><a href="/">Home</a></li>
+        <li class="active-item"><a href="/assessment">Take the Assessment</a></li>
+        <li><a href="/research">About our Research</a></li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
-        <li><a href="/">Home/About</a></li>
-        <li class="active-item"><a href="/assessment">Assessment</a></li>
+        <li><a href="/">Home</a></li>
+        <li class="active-item"><a href="/assessment">Take the Assessment</a></li>
+        <li><a href="/research">About our Research</a></li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
@@ -35,11 +37,10 @@
 
       <div class="row">
         <div class="col s12">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h3>Assess a firm</h3>
+          <h4>Assess a firm</h4>
           <p class="left-align light">This tool aims to evaluate the asymmetric forces occurring as the firm battles versus the internal firm environment (The Firm), versus the immediate environment (Micro) and versus the general environment (Macro) by using an events-based assessing technique to quantify and portray the presence of dominant failure factors and symptoms. This Assessment will help you to uncover an organizations susceptibility to threatening failure instances and place you in an advantageous position to deploy enhanced strategic actions or corrective actions before it’s too late.</p>
 
-          <h3>Instructions</h3>
+          <h4>Instructions</h4>
           <p class="left-align light">For each question, click the answer that best reflects the firm or your view of the firm. A working knowledge of the firm or Individual research may be required to address the various question. Evidently, the higher the degree of objective factors that underpin the responses, the more reliable the results will be. Please answer questions in consideration of the firm’s present-day state (rather than of how the firm once was or aspires to be). Don't worry if some questions seem to score in the 'wrong direction'. Please be sure to answer all the presented questions. When you are finished, please click the 'Calculate My Total' button at the bottom of the test. You will then be automatically directed to the results dashboard where you can evaluate the firm’s failure position and view strategic insights to navigate the firm's given failure positions optimally. We do not save any of the response. Please ensure to print the results upon completion.</p>
 
           <p>
@@ -55,8 +56,7 @@
 
       <div class="row">
         <div class="col s12">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h3>Assessment Framework</h3>
+          <h4>Assessment Framework</h4>
           <a id="auto-populate">Auto Populate</a>
           <form action="#">
             <div id="form-content"></div>
@@ -79,380 +79,446 @@
           <h3><i class="mdi-content-send brown-text"></i></h3>
           <h3>Assessment Results Dashboard</h3>
           <p class="left-align light">Our research on large and mature failed organizations emphasized that as organizations continue along the continuum of existence, they are in a constant battle against various failure factors associated amongst three environment domains, they battle versus the internal firm environment (The Firm), versus the immediate environment (Micro) and versus the general environment (Macro). This results dashboard aims to portray a firm’s susceptibility to variables and indicators of impending business failure through (1) Producing an Overall Failure Score, (2) Utilizing the proposed framework to showcase the failure factors influencing an organization's failure position (3) Providing insights into the environment and associated factors that present the most significant risks to you.</p>
-
           <p><a class="btn-large waves-effect waves-light indigo darken-2 print">Print</a></p>
-          <div class="row">
-            <div class="col s12 l4">
-              <div class="card">
-                <h5>Your susceptibility to failure</h5>
-                <div class="score-container">
-                  <canvas id="score-dial"></canvas>
-                  <div class="score"></div>
-                </div>
-                <br><br>
-                <h5>Score interpretation</h5>
-                <table>
-                  <tr>
-                    <th>Score</th>
-                    <th>Comment</th>
-                  </tr>
-                  <tr>
-                    <td>0-25%</td>
-                    <td>Low Probability of Business Failure</td>
-                  </tr>
-                  <tr>
-                    <td>26-50%</td>
-                    <td>Moderate Business Failure Concern</td>
-                  </tr>
-                  <tr>
-                    <td>51-75%</td>
-                    <td>Alarming Failure Potential</td>
-                  </tr>
-                  <tr>
-                    <td>76-100%</td>
-                    <td>High Risk and Probability of Failure</td>
-                  </tr>
-                </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <h5>Versus framework results</h5>
+            <p class="versus-success">Congratulations, you're not currently facing the threat of business failure. If there are any failure factors outlined below, they may be affecting your ability to optimise on your business success.</p>
+            <p class="versus-early">You seem to be facing <span class="medium">Early Stage Business Failure</span>. You are able to counter most of the factors heading your way, but if this keeps up for long you may start to see trouble. If there are any failure factors outlined below, they may be affecting your ability to optimise on your business success.</p>
+            <p class="versus-mid">You seem to be facing <span class="high">Mid Stage Business Failure</span>. You will find yourself with troubles that are starting to get out of your control. The failure factors outlined below will be affecting your ability to optimise on your business success.</p>
+            <p class="versus-late">Your business is facing <span class="very-high">Late Stage Business Failure</span>. We expect that your business will experience a failure event in the next 2 years unless drastic action is taken. The failure factors outlined below will be affecting your ability to optimise on your business success.</p>
+            <div class="factor-row factor-row-1">General Environment (Macro)</div>
+            <div class="factor-row factor-row-2">Immediate Environment (Micro)</div>
+            <div class="factor-row factor-row-3">The Firm (Company)</div>
+            <div class="versus-container">
+              <div class="versus-section versus-section-1">
+                <div>Success</div>
               </div>
-            </div>
-            <div class="col s12 l8">
-              <div class="card">
-                <h5>Versus framework results</h5>
-                <p class="versus-success">Congratulations, you're not currently facing the threat of business failure. If there are any failure factors outlined below, they may be affecting your ability to optimise on your business success.</p>
-                <p class="versus-early">You seem to be facing <span class="medium">Early Stage Business Failure</span>. You are able to counter most of the factors heading your way, but if this keeps up for long you may start to see trouble. If there are any failure factors outlined below, they may be affecting your ability to optimise on your business success.</p>
-                <p class="versus-mid">You seem to be facing <span class="high">Mid Stage Business Failure</span>. You will find yourself with troubles that are starting to get out of your control. The failure factors outlined below will be affecting your ability to optimise on your business success.</p>
-                <p class="versus-late">Your business is facing <span class="very-high">Late Stage Business Failure</span>. We expect that your business will experience a failure event in the next 2 years unless drastic action is taken. The failure factors outlined below will be affecting your ability to optimise on your business success.</p>
-                <div class="factor-row factor-row-1">General Environment (Macro)</div>
-                <div class="factor-row factor-row-2">Immediate Environment (Micro)</div>
-                <div class="factor-row factor-row-3">The Firm (Company)</div>
-                <div class="versus-container">
-                  <div class="versus-section versus-section-1">
-                    <div>Success</div>
-                  </div>
-                  <div class="versus-section versus-section-2">
-                    <div>Early Stage Failure</div>
-                    <svg id="bubble-early" class="versus-bubble-chart"></svg>
-                  </div>
-                  <div class="versus-section versus-section-3">
-                    <div>Mid Stage Failure</div>
-                    <svg id="bubble-mid" class="versus-bubble-chart"></svg>
-                  </div>
-                  <div class="versus-section versus-section-4">
-                    <div>Late Stage Failure</div>
-                    <svg id="bubble-late" class="versus-bubble-chart"></svg>
-                  </div>
-                  <img src="../chart-bg.png" />
-                  <span class="arrow arrow-down arrow-1"></span>
-                  <span class="arrow arrow-down arrow-2"></span>
-                  <span class="arrow arrow-down arrow-3"></span>
-                </div>
-                <div class="factor-row factor-row-4">The Firm's Actions &amp; Capabilities</div>
-                <!-- <canvas id="myChart" width="600" height="600"></canvas> -->
+              <div class="versus-section versus-section-2">
+                <div>Early Stage Failure</div>
+                <svg id="bubble-early" class="versus-bubble-chart"></svg>
               </div>
-            </div>
-          </div>
-
-          <div class="factors">
-            <div class="row">
-              <div class="col s12">
-                <div class="card">
-                  <h5>Your Risk Factors and mitigations</h5>
-                  <p>The factors shown in the chart above are outlined here. If you would like to read more about the research behind why these factors contribute to business failure, click here.</p>
-                  <table class="failure-factor-grid">
-                    <tr>
-                      <th>Source</th>
-                      <th>Risk Factor</th>
-                      <th>Your exposure</th>
-                      <th>Your ability to counter</th>
-                      <th>Your overall risk</th>
-                      <th>Details</th>
-                    </tr>
-
-                    <tr class="none">
-                      <td colspan="6">You are not exposed to any risk factors of failure, congratulations!</td>
-                    </tr>
-
-                    <tr class="f9 failure-factor-row">
-                      <td>General (Macro)</td>
-                      <td>Changes in Economic Factors: Recessionary Downturn</td>
-                      <td class="f9-exposure exposure">-</td>
-                      <td class="f9-counter counter">-</td>
-                      <td class="f9-risk risk">-</td>
-                      <td><a class="mitigation-link f9-mitigation">Show details...</a></td>
-                    </tr>
-                    <tr class="f9-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Changes in Economic Factors: Recessionary Downturn</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f1 failure-factor-row">
-                      <td>Immediate (Micro)</td>
-                      <td>Increasing and/or Aggressive Competitive Rivalry</td>
-                      <td class="f1-exposure exposure">-</td>
-                      <td class="f1-counter counter">-</td>
-                      <td class="f1-risk risk">-</td>
-                      <td><a class="mitigation-link f1-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f1-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Increasing and/or Aggressive Competitive Rivalry</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f4 failure-factor-row">
-                      <td>Immediate (Micro)</td>
-                      <td>Changes in consumer tastes, demand or market power</td>
-                      <td class="f4-exposure exposure">-</td>
-                      <td class="f4-counter counter">-</td>
-                      <td class="f4-risk risk">-</td>
-                      <td><a class="mitigation-link f4-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f4-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Changes in consumer tastes, demand or market power</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f12 failure-factor-row">
-                      <td>Immediate (Micro)</td>
-                      <td>Industry-wide Disruption and Complexities</td>
-                      <td class="f12-exposure exposure">-</td>
-                      <td class="f12-counter counter">-</td>
-                      <td class="f12-risk risk">-</td>
-                      <td><a class="mitigation-link f12-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f12-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Industry-wide Disruption and Complexities</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f2 failure-factor-row">
-                      <td>Internal (Management: Decision, Skills and Qualities)</td>
-                      <td>Inferior management quality and skill: Strategic Errors</td>
-                      <td class="f2-exposure exposure">-</td>
-                      <td class="f2-counter counter">-</td>
-                      <td class="f2-risk risk">-</td>
-                      <td><a class="mitigation-link f2-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f2-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Inferior management quality and skill: Strategic Errors</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f5 failure-factor-row">
-                      <td>Internal (Management: Decision, Skills and Qualities)</td>
-                      <td>Inferior management quality and skill: Strategic Foresight</td>
-                      <td class="f5-exposure exposure">-</td>
-                      <td class="f5-counter counter">-</td>
-                      <td class="f5-risk risk">-</td>
-                      <td><a class="mitigation-link f5-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f5-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Inferior management quality and skill: Strategic Foresight</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f3 failure-factor-row">
-                      <td>Internal (Management Personality, Behaviors and Characteristics)</td>
-                      <td>Management Cognitive Inertia: Responding to change in environment</td>
-                      <td class="f3-exposure exposure">-</td>
-                      <td class="f3-counter counter">-</td>
-                      <td class="f3-risk risk">-</td>
-                      <td><a class="mitigation-link f3-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f3-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Management Cognitive Inertia: Responding to change in environment</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f11 failure-factor-row">
-                      <td>Internal (Management Personality, Behaviors and Characteristics)</td>
-                      <td>Management Cognitive Inertia: Responding to change in environment (Complacency)</td>
-                      <td class="f11-exposure exposure">-</td>
-                      <td class="f11-counter counter">-</td>
-                      <td class="f11-risk risk">-</td>
-                      <td><a class="mitigation-link f11-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f11-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Management Cognitive Inertia: Responding to change in environment (Complacency)</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f16 failure-factor-row">
-                      <td>Internal (Management Personality, Behaviors and Characteristics)</td>
-                      <td>Management Cognitive Inertia: Resistance to change</td>
-                      <td class="f16-exposure exposure">-</td>
-                      <td class="f16-counter counter">-</td>
-                      <td class="f16-risk risk">-</td>
-                      <td><a class="mitigation-link f16-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f16-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Management Cognitive Inertia: Resistance to change</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f17 failure-factor-row">
-                      <td>Internal (Management Personality, Behaviors and Characteristics)</td>
-                      <td>Management Personality deficiencies: hubris leader (narcissist, arrogance, excessive pride, dangerous overconfidence)</td>
-                      <td class="f17-exposure exposure">-</td>
-                      <td class="f17-counter counter">-</td>
-                      <td class="f17-risk risk">-</td>
-                      <td><a class="mitigation-link f17-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f17-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Management Personality deficiencies: hubris leader (narcissist, arrogance, excessive pride, dangerous overconfidence)</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f18 failure-factor-row">
-                      <td>Internal (Management Personality, Behaviors and Characteristics)</td>
-                      <td>Management Personality deficiencies: Conflicting Self-Interests</td>
-                      <td class="f18-exposure exposure">-</td>
-                      <td class="f18-counter counter">-</td>
-                      <td class="f18-risk risk">-</td>
-                      <td><a class="mitigation-link f18-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f18-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Management Personality deficiencies: Conflicting Self-Interests</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f6 failure-factor-row">
-                      <td>Internal (Management: Strategic Focus)</td>
-                      <td>Management Strategic Focus: Aggressive, Ambitious and/or Risky Endeavors</td>
-                      <td class="f6-exposure exposure">-</td>
-                      <td class="f6-counter counter">-</td>
-                      <td class="f6-risk risk">-</td>
-                      <td><a class="mitigation-link f6-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f6-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Management Strategic Focus: Aggressive, Ambitious and/or Risky Endeavors</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f13 failure-factor-row">
-                      <td>Internal (Management: Management System)</td>
-                      <td>Ineffective management systems: Internal Stakeholder Disharmony</td>
-                      <td class="f13-exposure exposure">-</td>
-                      <td class="f13-counter counter">-</td>
-                      <td class="f13-risk risk">-</td>
-                      <td><a class="mitigation-link f13-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f13-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Ineffective management systems: Internal Stakeholder Disharmony</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f14 failure-factor-row">
-                      <td>Internal (Management: Management System)</td>
-                      <td>Ineffective management systems: Frequently Changing Management Team</td>
-                      <td class="f14-exposure exposure">-</td>
-                      <td class="f14-counter counter">-</td>
-                      <td class="f14-risk risk">-</td>
-                      <td><a class="mitigation-link f14-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f14-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Ineffective management systems: Frequently Changing Management Team</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f7 failure-factor-row">
-                      <td>Internal (Firm: Business Model)</td>
-                      <td>Business Model: lack/loss/misallocation of quality resources and distinctive competencies</td>
-                      <td class="f7-exposure exposure">-</td>
-                      <td class="f7-counter counter">-</td>
-                      <td class="f7-risk risk">-</td>
-                      <td><a class="mitigation-link f7-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f7-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Business Model: lack/loss/misallocation of quality resources and distinctive competencies</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f10 failure-factor-row">
-                      <td>Internal (Firm: Business Model)</td>
-                      <td>Business Model: Constrained by Leveraged Buyout Debt</td>
-                      <td class="f10-exposure exposure">-</td>
-                      <td class="f10-counter counter">-</td>
-                      <td class="f10-risk risk">-</td>
-                      <td><a class="mitigation-link f10-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f10-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Business Model: Constrained by Leveraged Buyout Debt</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f15 failure-factor-row">
-                      <td>Internal (Firm: Business Model)</td>
-                      <td>Business Model: Low Value/Devaluing Business activities (Products/Service)</td>
-                      <td class="f15-exposure exposure">-</td>
-                      <td class="f15-counter counter">-</td>
-                      <td class="f15-risk risk">-</td>
-                      <td><a class="mitigation-link f15-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f15-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Business Model: Low Value/Devaluing Business activities (Products/Service)</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                    <tr class="f8 failure-factor-row">
-                      <td>Internal (Firm: Ineffective processes and systems)</td>
-                      <td>Ineffective processes and systems: Marketing, Marketing Mix and/or Branding</td>
-                      <td class="f8-exposure exposure">-</td>
-                      <td class="f8-counter counter">-</td>
-                      <td class="f8-risk risk">-</td>
-                      <td><a class="mitigation-link f15-mitigation-link">Show details...</a></td>
-                    </tr>
-                    <tr class="f8-mitigation mitigation">
-                      <td colspan="6">
-                        <p>Details about and methods for mitigating <strong>Ineffective processes and systems: Marketing, Marketing Mix and/or Branding</strong> goes here...</p>
-                        <span class="close-row">x</span>
-                      </td>
-                    </tr>
-
-                  </table>
-                </div>
+              <div class="versus-section versus-section-3">
+                <div>Mid Stage Failure</div>
+                <svg id="bubble-mid" class="versus-bubble-chart"></svg>
               </div>
+              <div class="versus-section versus-section-4">
+                <div>Late Stage Failure</div>
+                <svg id="bubble-late" class="versus-bubble-chart"></svg>
+              </div>
+              <img src="../chart-bg.png" />
+              <span class="arrow arrow-down arrow-1"></span>
+              <span class="arrow arrow-down arrow-2"></span>
+              <span class="arrow arrow-down arrow-3"></span>
             </div>
-          </div>
-
-          <div class="responses raw-responses">
-            <h6>Raw Responses</h6>
+            <div class="factor-row factor-row-4">The Firm's Actions &amp; Capabilities</div>
+            <!-- <canvas id="myChart" width="600" height="600"></canvas> -->
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col s12 l6">
+          <div class="card">
+            <h5>Failure exposure</h5>
+            <p>Our research identified the dominant factors which have caused large and mature organizations to fail in the past. It further identified that firms can encounter a single or clustering of failure factors which can overpower the capabilities of the firm and push it to a lower state of failure. The score below reflects the collective exposure presence of the tested failure factors to indicate the overall degree of the threat.</p>
+            <p><strong>Your score: <span class="failure-score">TBD</span></strong></p>
+            <table class="failure-score-table">
+              <tr>
+                <th>Score</th>
+                <th>Comment</th>
+              </tr>
+              <tr>
+                <td class="low"><strong>0-24</strong></td>
+                <td class="low">Low presence of threatening failure factors</td>
+              </tr>
+              <tr>
+                <td class="medium"><strong>25-49</strong></td>
+                <td class="medium">Moderate presence of threatening failure factors</td>
+              </tr>
+              <tr>
+                <td class="high"><strong>50-74</strong></td>
+                <td class="high">Concerning presence of threatening failure factors</td>
+              </tr>
+              <tr>
+                <td class="very-high"><strong>75-100</strong></td>
+                <td class="very-high">High presence of threatening failure factors</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="col s12 l6">
+          <div class="card">
+            <h5>Failure Stage Trajectory</h5>
+            <p>Our research identified the dominant factors which have caused large and mature organizations to fail, in addition, the dominant failure symptoms that are present across various failure stages. The score below reflects the weighted average of the the failure factor test results and failure stage test results to indicate future state trajectory.</p>
+            <p><strong>Your score: <span class="failure-trajectory">TBD</span></strong></p>
+            <table class="failure-trajectory-table">
+              <tr>
+                <th>Score</th>
+                <th>Probability to Navigate back to Success</th>
+                <th>Probability to advance to a lower point of failure</th>
+              </tr>
+              <tr>
+                <td class="low"><strong>0-24</strong></td>
+                <td class="low">High probability to navigate back to Success</td>
+                <td class="low">Low likelihood of advancing to a lower point of failure</td>
+              </tr>
+              <tr>
+                <td class="medium"><strong>25-49</strong></td>
+                <td class="medium">Moderate probability to navigate back to Success</td>
+                <td class="medium">Moderate likelihood of advancing to a lower point of failure</td>
+              </tr>
+              <tr>
+                <td class="high"><strong>50-74</strong></td>
+                <td class="high">Low probability to navigate back to Success</td>
+                <td class="high">Moderate likelihood of advancing to a lower point of failure</td>
+              </tr>
+              <tr>
+                <td class="very-high"><strong>75-100</strong></td>
+                <td class="very-high">Negligible probability to navigate back to Success</td>
+                <td class="very-high">High likelihood of advancing to a lower point of failure</td>
+              </tr>
+            </table>
+          </div>
+          <!-- <div class="card">
+            <h5>Your susceptibility to failure</h5>
+            <div class="score-container">
+              <canvas id="score-dial"></canvas>
+              <div class="score"></div>
+            </div>
+            <br><br>
+            <h5>Score interpretation</h5>
+            <table>
+              <tr>
+                <th>Score</th>
+                <th>Comment</th>
+              </tr>
+              <tr>
+                <td>0-25%</td>
+                <td>Low Probability of Business Failure</td>
+              </tr>
+              <tr>
+                <td>26-50%</td>
+                <td>Moderate Business Failure Concern</td>
+              </tr>
+              <tr>
+                <td>51-75%</td>
+                <td>Alarming Failure Potential</td>
+              </tr>
+              <tr>
+                <td>76-100%</td>
+                <td>High Risk and Probability of Failure</td>
+              </tr>
+            </table>
+          </div> -->
+        </div>
+
+      </div>
+
+      <div class="factors">
+        <div class="row">
+          <div class="col s12">
+            <div class="card">
+              <h5>Your Risk Factors and mitigations</h5>
+              <p>The factors shown in the chart above are outlined here. If you would like to read more about the research behind why these factors contribute to business failure, click here.</p>
+              <table class="failure-factor-grid">
+                <tr>
+                  <th>Source</th>
+                  <th>Risk Factor</th>
+                  <th>Your exposure</th>
+                  <th>Your ability to counter</th>
+                  <th>Your overall risk</th>
+                  <th>Details</th>
+                </tr>
+
+                <tr class="none">
+                  <td colspan="6">You are not exposed to any risk factors of failure, congratulations!</td>
+                </tr>
+
+                <tr class="f9 failure-factor-row">
+                  <td class="factor-row-1">General (Macro)</td>
+                  <td class="factor-row-1">Changes in Economic Factors: Recessionary Downturn</td>
+                  <td class="f9-exposure exposure">-</td>
+                  <td class="f9-counter counter">-</td>
+                  <td class="f9-risk risk">-</td>
+                  <td><a class="mitigation-link f9-mitigation">Show details...</a></td>
+                </tr>
+                <tr class="f9-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Changes in Economic Factors: Recessionary Downturn</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f1 failure-factor-row">
+                  <td class="factor-row-2">Immediate (Micro)</td>
+                  <td class="factor-row-2">Increasing and/or Aggressive Competitive Rivalry</td>
+                  <td class="f1-exposure exposure">-</td>
+                  <td class="f1-counter counter">-</td>
+                  <td class="f1-risk risk">-</td>
+                  <td><a class="mitigation-link f1-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f1-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Increasing and/or Aggressive Competitive Rivalry</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f4 failure-factor-row">
+                  <td class="factor-row-2">Immediate (Micro)</td>
+                  <td class="factor-row-2">Changes in consumer tastes, demand or market power</td>
+                  <td class="f4-exposure exposure">-</td>
+                  <td class="f4-counter counter">-</td>
+                  <td class="f4-risk risk">-</td>
+                  <td><a class="mitigation-link f4-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f4-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Changes in consumer tastes, demand or market power</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f12 failure-factor-row">
+                  <td class="factor-row-2">Immediate (Micro)</td>
+                  <td class="factor-row-2">Industry-wide Disruption and Complexities</td>
+                  <td class="f12-exposure exposure">-</td>
+                  <td class="f12-counter counter">-</td>
+                  <td class="f12-risk risk">-</td>
+                  <td><a class="mitigation-link f12-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f12-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Industry-wide Disruption and Complexities</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f2 failure-factor-row">
+                  <td class="factor-row-3">Internal (Management: Decision, Skills and Qualities)</td>
+                  <td class="factor-row-3">Inferior management quality and skill: Strategic Errors</td>
+                  <td class="f2-exposure exposure">-</td>
+                  <td class="f2-counter counter">-</td>
+                  <td class="f2-risk risk">-</td>
+                  <td><a class="mitigation-link f2-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f2-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Inferior management quality and skill: Strategic Errors</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f5 failure-factor-row">
+                  <td class="factor-row-3">Internal (Management: Decision, Skills and Qualities)</td>
+                  <td class="factor-row-3">Inferior management quality and skill: Strategic Foresight</td>
+                  <td class="f5-exposure exposure">-</td>
+                  <td class="f5-counter counter">-</td>
+                  <td class="f5-risk risk">-</td>
+                  <td><a class="mitigation-link f5-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f5-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Inferior management quality and skill: Strategic Foresight</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f3 failure-factor-row">
+                  <td class="factor-row-3">Internal (Management Personality, Behaviors and Characteristics)</td>
+                  <td class="factor-row-3">Management Cognitive Inertia: Responding to change in environment</td>
+                  <td class="f3-exposure exposure">-</td>
+                  <td class="f3-counter counter">-</td>
+                  <td class="f3-risk risk">-</td>
+                  <td><a class="mitigation-link f3-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f3-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Management Cognitive Inertia: Responding to change in environment</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f11 failure-factor-row">
+                  <td class="factor-row-3">Internal (Management Personality, Behaviors and Characteristics)</td>
+                  <td class="factor-row-3">Management Cognitive Inertia: Responding to change in environment (Complacency)</td>
+                  <td class="f11-exposure exposure">-</td>
+                  <td class="f11-counter counter">-</td>
+                  <td class="f11-risk risk">-</td>
+                  <td><a class="mitigation-link f11-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f11-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Management Cognitive Inertia: Responding to change in environment (Complacency)</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f16 failure-factor-row">
+                  <td class="factor-row-3">Internal (Management Personality, Behaviors and Characteristics)</td>
+                  <td class="factor-row-3">Management Cognitive Inertia: Resistance to change</td>
+                  <td class="f16-exposure exposure">-</td>
+                  <td class="f16-counter counter">-</td>
+                  <td class="f16-risk risk">-</td>
+                  <td><a class="mitigation-link f16-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f16-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Management Cognitive Inertia: Resistance to change</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f17 failure-factor-row">
+                  <td class="factor-row-3">Internal (Management Personality, Behaviors and Characteristics)</td>
+                  <td class="factor-row-3">Management Personality deficiencies: hubris leader (narcissist, arrogance, excessive pride, dangerous overconfidence)</td>
+                  <td class="f17-exposure exposure">-</td>
+                  <td class="f17-counter counter">-</td>
+                  <td class="f17-risk risk">-</td>
+                  <td><a class="mitigation-link f17-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f17-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Management Personality deficiencies: hubris leader (narcissist, arrogance, excessive pride, dangerous overconfidence)</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f18 failure-factor-row">
+                  <td class="factor-row-3">Internal (Management Personality, Behaviors and Characteristics)</td>
+                  <td class="factor-row-3">Management Personality deficiencies: Conflicting Self-Interests</td>
+                  <td class="f18-exposure exposure">-</td>
+                  <td class="f18-counter counter">-</td>
+                  <td class="f18-risk risk">-</td>
+                  <td><a class="mitigation-link f18-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f18-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Management Personality deficiencies: Conflicting Self-Interests</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f6 failure-factor-row">
+                  <td class="factor-row-3">Internal (Management: Strategic Focus)</td>
+                  <td class="factor-row-3">Management Strategic Focus: Aggressive, Ambitious and/or Risky Endeavors</td>
+                  <td class="f6-exposure exposure">-</td>
+                  <td class="f6-counter counter">-</td>
+                  <td class="f6-risk risk">-</td>
+                  <td><a class="mitigation-link f6-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f6-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Management Strategic Focus: Aggressive, Ambitious and/or Risky Endeavors</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f13 failure-factor-row">
+                  <td class="factor-row-3">Internal (Management: Management System)</td>
+                  <td class="factor-row-3">Ineffective management systems: Internal Stakeholder Disharmony</td>
+                  <td class="f13-exposure exposure">-</td>
+                  <td class="f13-counter counter">-</td>
+                  <td class="f13-risk risk">-</td>
+                  <td><a class="mitigation-link f13-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f13-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Ineffective management systems: Internal Stakeholder Disharmony</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f14 failure-factor-row">
+                  <td class="factor-row-3">Internal (Management: Management System)</td>
+                  <td class="factor-row-3">Ineffective management systems: Frequently Changing Management Team</td>
+                  <td class="f14-exposure exposure">-</td>
+                  <td class="f14-counter counter">-</td>
+                  <td class="f14-risk risk">-</td>
+                  <td><a class="mitigation-link f14-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f14-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Ineffective management systems: Frequently Changing Management Team</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f7 failure-factor-row">
+                  <td class="factor-row-3">Internal (Firm: Business Model)</td>
+                  <td class="factor-row-3">Business Model: lack/loss/misallocation of quality resources and distinctive competencies</td>
+                  <td class="f7-exposure exposure">-</td>
+                  <td class="f7-counter counter">-</td>
+                  <td class="f7-risk risk">-</td>
+                  <td><a class="mitigation-link f7-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f7-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Business Model: lack/loss/misallocation of quality resources and distinctive competencies</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f10 failure-factor-row">
+                  <td class="factor-row-3">Internal (Firm: Business Model)</td>
+                  <td class="factor-row-3">Business Model: Constrained by Leveraged Buyout Debt</td>
+                  <td class="f10-exposure exposure">-</td>
+                  <td class="f10-counter counter">-</td>
+                  <td class="f10-risk risk">-</td>
+                  <td><a class="mitigation-link f10-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f10-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Business Model: Constrained by Leveraged Buyout Debt</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f15 failure-factor-row">
+                  <td class="factor-row-3">Internal (Firm: Business Model)</td>
+                  <td class="factor-row-3">Business Model: Low Value/Devaluing Business activities (Products/Service)</td>
+                  <td class="f15-exposure exposure">-</td>
+                  <td class="f15-counter counter">-</td>
+                  <td class="f15-risk risk">-</td>
+                  <td><a class="mitigation-link f15-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f15-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Business Model: Low Value/Devaluing Business activities (Products/Service)</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+                <tr class="f8 failure-factor-row">
+                  <td class="factor-row-3">Internal (Firm: Ineffective processes and systems)</td>
+                  <td class="factor-row-3">Ineffective processes and systems: Marketing, Marketing Mix and/or Branding</td>
+                  <td class="f8-exposure exposure">-</td>
+                  <td class="f8-counter counter">-</td>
+                  <td class="f8-risk risk">-</td>
+                  <td><a class="mitigation-link f15-mitigation-link">Show details...</a></td>
+                </tr>
+                <tr class="f8-mitigation mitigation">
+                  <td colspan="6">
+                    <p>Details about and methods for mitigating <strong>Ineffective processes and systems: Marketing, Marketing Mix and/or Branding</strong> goes here...</p>
+                    <span class="close-row">x</span>
+                  </td>
+                </tr>
+
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="responses raw-responses">
+        <h6>Raw Responses</h6>
+      </div>
+
     </div>
   </div>
 </div>
@@ -462,7 +528,7 @@
 
     <div class="footer-copyright">
       <div class="container">
-       <a class="brown-text text-lighten-3" href="#">&nbsp;</a>
+       <p>Copyright © 2020 All Rights Reserved by Business Failure Insights | <a href="/privacy" target="_blank">View our Privacy Policy</a></p>
       </div>
     </div>
   </footer>
