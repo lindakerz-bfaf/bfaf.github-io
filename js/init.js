@@ -23,7 +23,7 @@ var SORTED_STAGES = ['0-2','3-10','11-20']
 var PASS_STAGE_WEIGHT = 0.75
 var PAGES = [
   {stage:'0-2', type: 'Symptom'},
-  {stage:'3-10', type: 'Symptom', showIf: function(results){
+  {stage:['3-10','11-20'], type: 'Symptom', showIf: function(results){
     return getGroupWeight('0-2', results) < PASS_STAGE_WEIGHT
   }},
   {type: 'Factor'}
@@ -291,6 +291,7 @@ function filterQuestions(questions, type, stage){
   $.each(questions, function(key, question) {
     if(type && question.type !== type){ return }
     if(stage){
+      var stages = typeof stage === 'string' ? [stage] : stage
       var earliestStage = SORTED_STAGES.length - 1
       $.each(question.clusters || [], function(index, cluster){
         var stageIndex = -1
@@ -301,7 +302,7 @@ function filterQuestions(questions, type, stage){
           earliestStage = stageIndex
         }
       })
-      if(SORTED_STAGES[earliestStage] !== stage){
+      if(stages.indexOf(SORTED_STAGES[earliestStage]) < 0){
         return
       }
     }
