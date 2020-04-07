@@ -10,6 +10,7 @@
       "factor": "Deterioration of Financial Performance: Topline (Sales)",
       "clusters": [
         {
+          "dominant": true,
           "weighting": 12,
           "stage": "0-2"
         }
@@ -25,10 +26,12 @@
       "factor": "Material Strategic Action: Divesture of Subsidiary, Disinvestment, downsizing and/or cost-saving (closing of stores and/or downsizing labor force)",
       "clusters": [
         {
+          "dominant": true,
           "weighting": 12,
           "stage": "0-2"
         },
         {
+          "dominant": true,
           "weighting": 7,
           "stage": "3-10"
         },
@@ -48,6 +51,7 @@
       "factor": "Deterioration of Financial Performance: Severe Liquidity problems",
       "clusters": [
         {
+          "dominant": true,
           "weighting": 11,
           "stage": "0-2"
         }
@@ -215,6 +219,7 @@
           "stage": "3-10"
         },
         {
+          "dominant": true,
           "weighting": 8,
           "stage": "11-20"
         }
