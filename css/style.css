@@ -486,3 +486,26 @@ a.mitigation-link {
 [type="radio"]:checked + span:after, [type="radio"].with-gap:checked + span:after {
     background-color: #303f9f;
 }
+
+.cookie-banner {
+	position: fixed;
+	bottom: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  color: #FFF;
+  padding: 0 20px;
+}
+
+.close {
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  border-radius: 2px;
+  cursor: pointer;
+}
