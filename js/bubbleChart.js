@@ -57,9 +57,10 @@ function bubbleChart(width, height) {
     .range(['#9971c3', '#662ea2', '#300b58']);
 
   // Sizes bubbles based on their area instead of raw radius
+  var maxRadius = (window.innerWidth || 500) / 55
   var radiusScale = d3.scale.pow()
-    //.exponent(0.5)
-    .range([2, 25]);
+    .exponent(0.5)
+    .range([2, maxRadius]);
 
   /*
    * This data manipulation function takes the raw data from
@@ -80,8 +81,9 @@ function bubbleChart(width, height) {
     var myNodes = rawData.map(function (d) {
       return {
         id: d.code,
-        radius: radiusScale(+d.value),
+        radius: radiusScale(+d.weightedValue.stage),
         value: d.weightedValue.stage,
+        rawValue: d.rawValue,
         name: d.factor,
         group: d.domain,
         x: Math.random() * width,
@@ -112,7 +114,7 @@ function bubbleChart(width, height) {
     // Use the max value in the data as the max in the scale's domain
     // note we have to ensure the value is a number by converting it
     // with `+`.
-    var maxAmount = d3.max(rawData, function (d) { return +d.value; });
+    var maxAmount = d3.max(rawData, function (d) { return +d.weightedValue.stage; });
     radiusScale.domain([0, maxAmount]);
 
     nodes = createNodes(rawData);
@@ -197,9 +199,9 @@ function bubbleChart(width, height) {
     d3.select(this).attr('stroke', 'black');
 
     var risk = 'Low';
-    if(d.radius > 20) risk = 'Very High'
-    else if(d.radius > 14) risk = 'High'
-    else if(d.radius > 8) risk = 'Medium'
+    if(d.rawValue > 0.75) risk = 'Very High'
+    else if(d.rawValue > 0.5) risk = 'High'
+    else if(d.rawValue > 0.25) risk = 'Medium'
 
     var content = '<h7 class="value">' +
                   d.name +

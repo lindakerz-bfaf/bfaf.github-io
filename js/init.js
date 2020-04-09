@@ -361,13 +361,24 @@ function getFailureStage(results) {
   var midStageScore = getGroupWeight('3-10', results);
   var earlyStageScore = getGroupWeight('11-20', results);
 
-  if(lateStageScore > 0.75) return 'late';
-  if(midStageScore > 0.75) return 'mid';
-  if(lateStageScore > 0.25 && midStageScore > 0.25) {
-    if(lateStageScore > midStageScore) return 'late';
-    else return 'mid';
+  var lateStageOverallScore = getGroupWeight('0-2', results, null, 'overall');
+  var midStageOverallScore = getGroupWeight('3-10', results, null, 'overall');
+  var earlyStageOverallScore = getGroupWeight('11-20', results, null, 'overall');
+  var maxOverall = Math.max(lateStageOverallScore, midStageOverallScore, earlyStageOverallScore);
+
+  if(lateStageScore < 0.25 && midStageScore < 0.25 && earlyStageScore < 0.25){
+    return 'success';
   }
-  if(earlyStageScore > 0.25) return 'early';
+  if(lateStageScore > 0.75) return 'late';
+  if(maxOverall === lateStageOverallScore) return 'late';
+  if(maxOverall === midStageOverallScore) return 'mid';
+  if(maxOverall === earlyStageOverallScore) return 'early';
+  // if(midStageScore > 0.75) return 'mid';
+  // if(lateStageScore > 0.25 && midStageScore > 0.25) {
+  //   if(lateStageScore > midStageScore) return 'late';
+  //   else return 'mid';
+  // }
+  // if(earlyStageScore > 0.25) return 'early';
   return 'success'
 }
 
@@ -447,11 +458,13 @@ function calculateResults(questions, totalWeightings) {
   return responses;
 }
 
-function getGroupWeight(matchValue, results, matchKey){
+function getGroupWeight(matchValue, results, matchKey, weightingKey){
   matchKey = matchKey || 'stage'
+  weightingKey = weightingKey || 'stage'
   var reducer = function(total, result){
-    if(result[matchKey] === matchValue && result.weightedValue && result.weightedValue.stage){
-      return total + result.weightedValue.stage
+    var weight = result.weightedValue && result.weightedValue[weightingKey]
+    if(result[matchKey] === matchValue && weight){
+      return total + weight
     }
     return total
   }
