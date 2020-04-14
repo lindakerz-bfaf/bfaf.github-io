@@ -17,14 +17,17 @@ var often = 0.75;
 var sometimes = 0.5;
 var rarely = 0.25;
 var never = 0;
+var LATE_STAGE = '0-2'
+var MID_STAGE = '3-10'
+var EARLY_STAGE = '11-20'
 
 var SCALE_MODE = 5
-var SORTED_STAGES = ['dominant','0-2','3-10','11-20']
+var SORTED_STAGES = ['dominant',LATE_STAGE, MID_STAGE, EARLY_STAGE]
 var PASS_STAGE_WEIGHT = 0.75
 var PAGES = [
-  {stage:['0-2', 'dominant'], type: 'Symptom'},
-  {stage:['3-10','11-20'], type: 'Symptom', showIf: function(results){
-    return getGroupWeight('0-2', results) < PASS_STAGE_WEIGHT
+  {stage:[LATE_STAGE, 'dominant'], type: 'Symptom'},
+  {stage:[MID_STAGE,EARLY_STAGE], type: 'Symptom', showIf: function(results){
+    return getGroupWeight(LATE_STAGE, results) < PASS_STAGE_WEIGHT
   }},
   {type: 'Factor'}
 ]
@@ -149,6 +152,8 @@ function setupVersusChart(results, stage) {
   if(!bubbleDomain["General"]) $(".arrow-3").hide();
 
   $(".versus-" + stage).show();
+  var width = $('.factor-row-4').width() + 'px';
+  $('.firm-factor-bg').css('border-right-width', width);
 }
 
 function setupOverallFailureScore(score) {
@@ -224,6 +229,11 @@ $( document ).ready(function() {
     $('.cookie-banner').fadeOut();
   });
 
+  window.resize(function() {
+    var width = $('.factor-row-4').width() + 'px';
+    $('.firm-factor-bg').css('border-right-width', width);
+  })
+
 });
 
 function getNextPage(results){
@@ -254,11 +264,11 @@ function renderPage(questions){
 function onJSONLoaded(data){
   var questions = data.questions;
   var totalWeightings = {}
-  totalWeightings['0-2'] = getTotalWeight('0-2', questions)
-  totalWeightings['3-10'] = getTotalWeight('3-10', questions)
-  totalWeightings['11-20'] = getTotalWeight('11-20', questions)
+  totalWeightings[LATE_STAGE] = getTotalWeight(LATE_STAGE, questions)
+  totalWeightings[MID_STAGE] = getTotalWeight(MID_STAGE, questions)
+  totalWeightings[EARLY_STAGE] = getTotalWeight(EARLY_STAGE, questions)
   totalWeightings.factor = getTotalWeight('factor', questions)
-  totalWeightings.overall = totalWeightings['0-2'] + totalWeightings['3-10'] + totalWeightings['11-20']
+  totalWeightings.overall = totalWeightings[LATE_STAGE] + totalWeightings[MID_STAGE] + totalWeightings[EARLY_STAGE]
   var page = getNextPage()
   var pageQns = []
   if(page){
@@ -276,8 +286,9 @@ function onJSONLoaded(data){
     } else {
       $('#framework-form').hide();
       $('#framework-results').show();
-      displayResults(results);
+      displayResults(results, questions);
     }
+    if(currentPage == 2) $('#form-submit-button').text("Calculate my Results")
     $(window).scrollTop(0);
   });
   $("#auto-populate").on("click", function(){ autoPopulateForm(questions) });
@@ -303,7 +314,7 @@ function onJSONLoaded(data){
   })
 }
 
-function displayResults(results) {
+function displayResults(results, questions) {
   var categories = {};
   $.each(results, function(key, result) {
     var type = result.type
@@ -316,7 +327,7 @@ function displayResults(results) {
     categories[type][domainKey][factor][stage] = result.weightedValue.stage
   });
 
-  var stage = getFailureStage(results);
+  var stage = getFailureStage(results, questions);
   var score = getFailureScore(results, stage);
 
   setupVersusChart(results, stage);
@@ -325,9 +336,9 @@ function displayResults(results) {
   setupFailureAndTrajectoryTotals(results, stage);
   //setupOverallFailureScore(score)
 
-  var summaryHtml = "<p><strong>Stage 0-2 total score:</strong> " + getGroupWeight('0-2', results) + "</p>";
-  summaryHtml += "<p><strong>Stage 3-10 total score:</strong> " + getGroupWeight('3-10', results) + "</p>";
-  summaryHtml += "<p><strong>Stage 11-20 total score:</strong> " + getGroupWeight('11-20', results) + "</p>";
+  var summaryHtml = "<p><strong>Stage 0-2 total score:</strong> " + getGroupWeight(LATE_STAGE, results) + "</p>";
+  summaryHtml += "<p><strong>Stage 3-10 total score:</strong> " + getGroupWeight(MID_STAGE, results) + "</p>";
+  summaryHtml += "<p><strong>Stage 11-20 total score:</strong> " + getGroupWeight(EARLY_STAGE, results) + "</p>";
   summaryHtml += "<p><strong>Failure stage:</strong> " + stage + "</p>"
   summaryHtml += "<p><strong>Factors total score:</strong> " + getGroupWeight('Factor', results, 'type') + "</p>";
   $(".responses").append(summaryHtml);
@@ -343,9 +354,9 @@ function getFailureScore(results, failureStage) {
   var factorsTotalScore = getGroupWeight('Factor', results, 'type');
   var failureStageScore = 0;
 
-  if(failureStage == 'late') failureStageScore = getGroupWeight('0-2', results);
-  if(failureStage == 'mid') failureStageScore = getGroupWeight('3-10', results);
-  if(failureStage == 'early') failureStageScore = getGroupWeight('11-20', results);
+  if(failureStage == 'late') failureStageScore = getGroupWeight(LATE_STAGE, results);
+  if(failureStage == 'mid') failureStageScore = getGroupWeight(MID_STAGE, results);
+  if(failureStage == 'early') failureStageScore = getGroupWeight(EARLY_STAGE, results);
 
   var failureScore = (factorsTotalScore + failureStageScore) * 100;
   failureScore = Math.round(failureScore);
@@ -365,14 +376,19 @@ function calculateDominantScore(results){
   return 1 - weightedScore / maxScore;
 }
 
-function getFailureStage(results) {
-  var lateStageScore = getGroupWeight('0-2', results);
-  var midStageScore = getGroupWeight('3-10', results);
-  var earlyStageScore = getGroupWeight('11-20', results);
+function getFailureStage(results, questions) {
+  var lateStageScore = getGroupWeight(LATE_STAGE, results);
+  var midStageScore = getGroupWeight(MID_STAGE, results);
+  var earlyStageScore = getGroupWeight(EARLY_STAGE, results);
+  var count = {}
+  count[LATE_STAGE] = getNumQuestions(LATE_STAGE, questions)
+  count[MID_STAGE] = getNumQuestions(MID_STAGE, questions)
+  count[EARLY_STAGE] = getNumQuestions(EARLY_STAGE, questions)
 
-  var lateStageOverallScore = getGroupWeight('0-2', results, null, 'overall');
-  var midStageOverallScore = getGroupWeight('3-10', results, null, 'overall');
-  var earlyStageOverallScore = getGroupWeight('11-20', results, null, 'overall');
+  var overallCount = count[LATE_STAGE] + count[MID_STAGE] + count[EARLY_STAGE]
+  var lateStageOverallScore = lateStageScore * (count[LATE_STAGE]/overallCount);
+  var midStageOverallScore = midStageScore * (count[MID_STAGE]/overallCount);
+  var earlyStageOverallScore = earlyStageScore * (count[EARLY_STAGE]/overallCount);
   var maxOverall = Math.max(lateStageOverallScore, midStageOverallScore, earlyStageOverallScore);
 
   if(lateStageScore < 0.25 && midStageScore < 0.25 && earlyStageScore < 0.25){
@@ -397,9 +413,9 @@ function setupFailureAndTrajectoryTotals(results, stage) {
 
   var failureStageScore = 0;
 
-  if(stage == 'late') failureStageScore = getGroupWeight('0-2', results);
-  if(stage == 'mid') failureStageScore = getGroupWeight('3-10', results);
-  if(stage == 'early') failureStageScore = getGroupWeight('11-20', results);
+  if(stage == 'late') failureStageScore = getGroupWeight(LATE_STAGE, results);
+  if(stage == 'mid') failureStageScore = getGroupWeight(MID_STAGE, results);
+  if(stage == 'early') failureStageScore = getGroupWeight(EARLY_STAGE, results);
 
   var failureTrajectory = (failureScore + failureStageScore) / 2;
   var failureTrajectoryClass = getRiskClass(failureTrajectory);
@@ -490,6 +506,18 @@ function getTotalWeight(stage, questions){
     })
   })
   return totalWeight
+}
+
+function getNumQuestions(stage, questions){
+  var count = 0
+  $.each(questions, function(index, question){
+    $.each(question.clusters, function(index, cluster){
+      if (cluster.stage === stage || stage == null) {
+        count++
+      }
+    })
+  })
+  return count
 }
 
 function renderDial(score, remainder) {

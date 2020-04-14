@@ -74,7 +74,7 @@
     },
     {
       "code": "s5",
-      "question": "The company has increasing accumulated debt and/or has a concerningly high debt-to-assets-ratio and/or debt-to-equity-ratio",
+      "question": "The company has increasingly accumulated debt. This is notable in a concerningly high and consistently growing debt-to-assets-ratio and/or debt-to-equity-ratio",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Internal",
@@ -104,7 +104,7 @@
     },
     {
       "code": "s7",
-      "question": "The company has experienced a widespread loss in confidence and/or legitimacy by key investors and creditors",
+      "question": "The company has experienced a widespread loss in confidence and/or legitimacy by key investors, creditors and business partners",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Immediate",
@@ -138,7 +138,7 @@
     },
     {
       "code": "s9",
-      "question": "The company's stock has 'collapsed or persistently drifted to deficient levels' threatening its compliance to the exchange listing standard",
+      "question": "The company's stock has 'collapsed or persistently drifted to deficient levels' threatening its compliance with the exchange listing standards",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Internal",
@@ -207,7 +207,7 @@
 
     {
       "code": "s13",
-      "question": "The company has adopted a rapid expansion strategy, either domestically or internationally, that aims to significantly grow their footprint and potentially propelled them to a dominant and highly successful company in their industry (i.e., widespread store expansion, aggressive acquisition strategy)",
+      "question": "The company has adopted a rapid expansion strategy, either domestically or internationally, that aims to significantly grow their footprint (i.e., widespread store expansion, aggressive acquisition strategy)",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Internal",
@@ -246,7 +246,7 @@
     },
     {
       "code": "s18",
-      "question": "The company has 'consistently (over an extended period)' reported sales (revenue) deterioration when compared across multiple years (-1% to -5%, or possibly higher)",
+      "question": "The company has consistently reported sales deterioration when compared across multiple years (-1% to -5%, or possibly higher)",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Internal",
@@ -261,7 +261,7 @@
     },
     {
       "code": "s19",
-      "question": "The company posts 'consistent (over an extended period)' profit losses when compared across multiple years (-1% to -5%, or possibly higher)",
+      "question": "The company posts consistent profit losses when compared across multiple years (-1% to -5%, or possibly higher)",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Internal",
@@ -309,7 +309,7 @@
 
     {
       "code": "s16",
-      "question": "The company has recently completed a large scale acquisition",
+      "question": "The company has recently completed a large-scale acquisition",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Internal",
@@ -331,7 +331,7 @@
     {
       "code": "f1",
       "question": "The company faces threatening and market share eroding competition from multiple sources and types of competition (peer incumbents, disruptive new entrants, and/or big-box businesses)",
-      "counterQuestion": "How would you rate the firms ability to defend/compete against these threatening competitive forces?",
+      "counterQuestion": "How would you rate the firm's ability to effectively defend and succeed given these threatening types of competition?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Immediate",
@@ -347,7 +347,7 @@
     {
       "code": "f2",
       "question": "Management has made strategic choices and decisions that were outright wrong and/or materially unfavourable to the business (post-strategy execution result)",
-      "counterQuestion": "How satisfied are you that the firm's management have the capabilities and competences to rectify and address the poor strategic choices and decisions made in the past?",
+      "counterQuestion": "How would you rate management’s capabilities to rectify and address the poor strategic choices and decisions made in the past?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -362,8 +362,8 @@
     },
     {
       "code": "f3",
-      "question": "Management has shown naivety (nonchalant action), complacency (slow action) and/or routineness (same strategic approaches) in responding to a changing industry landscape and/or competitive environment",
-      "counterQuestion": "How satisfied are you that the firm's management has the inherent competences to act proactively, with more engagement and/or using new strategies to effectively respond to a changing industry landscape and/or competitive environment",
+      "question": "Management has shown naivety, complacency and/or routineness in responding to a threatening competitive landscape or evolving business environment (i.e., nonchalant action, slow action, same strategic approaches)",
+      "counterQuestion": "How would you rate management’s motivation to act with proactive engagement and/or use new strategies to effectively respond to a threatening competitive landscape or evolving business environment?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -394,8 +394,8 @@
     },
     {
       "code": "f5",
-      "question": "Management has shown inferior capabilities to address, gauge, understand and/or fail to anticipate material business-related matters",
-      "counterQuestion": "How satisfied are you that the firm's management has the capabilities and competencies to improve upon their strategic foresight flaws to rectify past events and prevent future events",
+      "question": "Management has shown inferior capabilities to measure, understand and/or anticipate material business-related matters",
+      "counterQuestion": "How would you rate management’s capabilities to improve upon their strategic foresight flaws to rectify past events and prevent future events?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -410,8 +410,8 @@
     },
     {
       "code": "f6",
-      "question": "The company has adopted a rapid expansion strategy, either domestically or internationally, that aims to significantly grow their footprint and potentially propelled them to a dominant and highly successful company in their industry (i.e., widespread store expansion, aggressive acquisition strategy)",
-      "counterQuestion": "How would you rate the firm's ability to manage this aggressive growth over the long-term",
+      "question": "The company has adopted an aggressive and/or persistent downsizing and cost-saving effort (i.e., sale of subsidiaries, closing stores, employee layoffs, protect-terminations)",
+      "counterQuestion": "How would you rate the firm's ability to manage this aggressive growth over the long-term?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -426,8 +426,8 @@
     },
     {
       "code": "f7",
-      "question": "The company lacks quality resources and core competencies to effectively compete, manage a changing environment and/or fundamentally maintain the operations",
-      "counterQuestion": "How would you rate the firm's ability to create new and sustainable quality resources and core competencies",
+      "question": "The company lacks quality resources and core competencies needed to achieve essential competitive advantages and support future growth",
+      "counterQuestion": "How would you rate the firm's ability to establish appropriate resources and capabilities to achieve essential competitive advantages and support future growth?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -442,8 +442,8 @@
     },
     {
       "code": "f8",
-      "question": "The company appears to underestimate the need for marketing and/or a poor undifferentiated marketing strategy",
-      "counterQuestion": "How would you rate the firm's ability to implement a new and improved marketing strategy",
+      "question": "The company appears to underestimate the need for marketing and/or has an undifferentiated marketing strategy compared to their peers",
+      "counterQuestion": "How would you rate the firm's ability to implement a new and improved marketing strategy?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -458,8 +458,8 @@
     },
     {
       "code": "f9",
-      "question": "The company appears overwhelmed by a high debt burden loaded on the company during a past Private Equity buyout ",
-      "counterQuestion": "How would you rate the firm's ability to manage its debt obligations in relation to the Private Equity imposed contractual debt agreement",
+      "question": "The company appears overwhelmed by a high debt burden loaded on the company during a past Private Equity buyout",
+      "counterQuestion": "How would you rate the firm's ability to manage its debt obligations in relation to the Private Equity imposed contractual debt agreement?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -475,7 +475,7 @@
     {
       "code": "f10",
       "question": "The company is financially vulnerable to a recessionary downturn",
-      "counterQuestion": "How would you rate the firm's ability to navigate a recessionary downturn successfully",
+      "counterQuestion": "How would you rate the firm's ability to navigate a recessionary downturn successfully?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "General",
@@ -490,8 +490,8 @@
     },
     {
       "code": "f11",
-      "question": "The company's industry is facing wide-ranging disruption, turmoil and/or change (i.e., Consolidation, a shift in investor confidence)",
-      "counterQuestion": "How would you rate the firm's ability to successfully navigate wide-ranging disruption, turmoil and/or change the industry is facing",
+      "question": "The company's industry is facing wide-ranging disruption, turmoil and/or change (i.e., consolidation, a shift in investor confidence)",
+      "counterQuestion": "How would you rate the firm's ability to successfully navigate this?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Immediate",
@@ -507,7 +507,7 @@
     {
       "code": "f12",
       "question": "There is material disharmony inside of the organization amongst employees and/or lower management",
-      "counterQuestion": "How would you rate the firm's ability to effectively address the internal stakeholder disharmony and create optimized relationships with internal stakeholders",
+      "counterQuestion": "How would you rate the firm's ability to effectively address the disharmony and create optimized relationships with these internal stakeholders?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -522,8 +522,8 @@
     },
     {
       "code": "f13",
-      "question": "Top-level management appear very confident, somewhat arrogant, and ignorant as a result of the companies past success",
-      "counterQuestion": "How satisfied are you that the firm has sufficient governance over the perks and privileges offer the senior management and/or management have the inherent capabilities to humble any success-driven ego's and strategic blinders",
+      "question": "Top-level management appear over confident, arrogant, and/or ignorant as a result of the company's past success",
+      "counterQuestion": "How would you rate the firm's ability to sufficiently govern the privileges, perks and decision making capabilities of executives and ultimately manage any success-driven ego's and strategic blinders?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -539,7 +539,7 @@
     {
       "code": "f14",
       "question": "The company has experienced frequent turnover within the top-level executive team",
-      "counterQuestion": "How satisfied are you that the frequent management changes are for the better and will enable the firm to achieve success over the long-term",
+      "counterQuestion": "How would you rate the firm’s potential to achieve success over the long-term under the new executive(s)?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -555,7 +555,7 @@
     {
       "code": "f15",
       "question": "The company is mainly dependent on deteriorating low margin (low value) products or services",
-      "counterQuestion": "How would you rate the firm's ability to find enhance value in their current array of products or services and/or diversify in new value-generating products and/or services",
+      "counterQuestion": "How would you rate the firm's ability to find enhanced value in their current array of products or services and/or diversify into new value-generating products or services?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -570,8 +570,8 @@
     },
     {
       "code": "f16",
-      "question": "Management appears resistant to evolve the business strategy or operations in light of material changes occurring in the industry landscape and/or competitive environment",
-      "counterQuestion": "How satisfied are you that the firm's management has the will and motivation to evolve and effectively respond to a changing industry landscape and/or competitive environment",
+      "question": "Management appears resistant to evolve the business strategy or operations in light of material changes occurring in the industry landscape or evolving business environment",
+      "counterQuestion": "How would you rate management’s will and motivation to actually respond to a threatening competitive landscape or evolving business environment?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -587,7 +587,7 @@
     {
       "code": "f17",
       "question": "Top-level management have conflicting self-interests which could materially influence their strategic decisions and behaviours",
-      "counterQuestion": "How would you rate the firm's ability to govern and manage any top-level management conflicting self-interests",
+      "counterQuestion": "How would you rate the firm's ability to govern and manage any top-level management conflicting self-interests?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
@@ -603,7 +603,7 @@
     {
       "code": "f18",
       "question": "The company's core assets or asset related obligations (resource commitments, rents, mortgage payments) are restricting their strategic action in response to internal and external environment changes",
-      "counterQuestion": "How would you rate the firm's ability to manage these asset-related entrenchment risks successfully",
+      "counterQuestion": "How would you rate the firm's ability to successfully manage these inadequacies stemming from the asset-related obligations ",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",

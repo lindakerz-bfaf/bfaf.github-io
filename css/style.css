@@ -12,11 +12,18 @@ nav .brand-logo {
 }
 
 nav .brand-logo {
-  font-size: 20px;
+  font-size: 30px;
+  font-weight: 600;
 }
 
 p {
   line-height: 2rem;
+}
+
+img.center {
+  margin: 30px auto;
+  display: block;
+  max-width: 100%;
 }
 
 .sidenav-trigger {
@@ -159,6 +166,14 @@ th {
   float: left;
   text-align: center;
   border: 1px solid white;
+  position: relative;
+}
+
+.versus-section div {
+    z-index: 101;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 .versus-section-1 {
@@ -235,8 +250,11 @@ td {
 }
 
 .versus-bubble-chart {
-  width: 100%;
+  width: 90%;
   height: 100%;
+  z-index: 9;
+  position: absolute;
+  left: 5%;
 }
 
 .versus-container {
@@ -248,9 +266,10 @@ td {
 .versus-container img {
   border-style: none;
   position: absolute;
-  left: 1px;
-  bottom: -2px;
+  left: 0px;
+  bottom: 0px;
   width: 100%;
+  z-index: 8;
 }
 
 .factor-row {
@@ -278,6 +297,41 @@ td {
 
 .factor-row-4 {
   background-color: #222222;
+  height: 70px;
+  position: relative;
+}
+
+.factor-row-4 .left {
+  position: absolute;
+  top: 15px;
+  width: 120px;
+  text-align: left;
+  left: 10px;
+  font-size: 0.8em;
+}
+
+.factor-row-4 .right {
+  position: absolute;
+  top: 15px;
+  width: 120px;
+  text-align: right;
+  right: 10px;
+  font-size: 0.8em;
+}
+
+.firm-factor-bg {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: transparent;
+  border-bottom-color: #004eff66;
+  border-right-width: 1215px;
+  border-bottom-width: 68px;
 }
 
 .tooltip {
@@ -326,7 +380,7 @@ td {
 
 .arrow {
   width: 40px;
-  height: 400px;
+  height: 340px;
   position: absolute;
   display: inline-block;
   margin: 10px 10px;
@@ -344,7 +398,7 @@ td {
 .arrow-down::before {
     border: none;
     background-color: #fff;
-    height: 360px;
+    height: 300px;
     width: 20%;
     top: 0;
     left: 40%;
@@ -358,7 +412,7 @@ td {
 }
 
 .arrow.arrow-1 {
-    height: 210px;
+    height: 150px;
     top: -10px;
 }
 
@@ -379,11 +433,11 @@ td {
 }
 
 .arrow-down.arrow-1::before {
-    height: 170px;
+    height: 110px;
 }
 
 .arrow.arrow-2 {
-    height: 260px;
+    height: 200px;
     top: -60px;
 }
 
@@ -404,11 +458,11 @@ td {
 }
 
 .arrow-down.arrow-2::before {
-    height: 220px;
+    height: 160px;
 }
 
 .arrow.arrow-3 {
-    height: 310px;
+    height: 250px;
     top: -110px;
 }
 
@@ -429,7 +483,7 @@ td {
 }
 
 .arrow-down.arrow-3::before {
-    height: 270px;
+    height: 210px;
 }
 
 #auto-populate {

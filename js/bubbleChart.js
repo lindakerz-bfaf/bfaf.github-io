@@ -57,7 +57,7 @@ function bubbleChart(width, height) {
     .range(['#9971c3', '#662ea2', '#300b58']);
 
   // Sizes bubbles based on their area instead of raw radius
-  var maxRadius = (window.innerWidth || 500) / 55
+  var maxRadius = (window.innerWidth || 500) / 65
   var radiusScale = d3.scale.pow()
     .exponent(0.5)
     .range([2, maxRadius]);
