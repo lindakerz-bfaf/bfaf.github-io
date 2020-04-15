@@ -401,9 +401,9 @@ function getFailureStage(results, questions) {
     return 'success';
   }
   if(lateStageScore > 0.75) return 'late';
-  if(maxOverall === lateStageOverallScore) return 'late';
-  if(maxOverall === midStageOverallScore) return 'mid';
   if(maxOverall === earlyStageOverallScore) return 'early';
+  if(maxOverall === midStageOverallScore) return 'mid';
+  if(maxOverall === lateStageOverallScore) return 'late';
   // if(midStageScore > 0.75) return 'mid';
   // if(lateStageScore > 0.25 && midStageScore > 0.25) {
   //   if(lateStageScore > midStageScore) return 'late';
