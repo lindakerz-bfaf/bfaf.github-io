@@ -291,6 +291,12 @@ function onJSONLoaded(data){
     if(currentPage == 2) $('#form-submit-button').text("Calculate my Results")
     $(window).scrollTop(0);
   });
+  var isAuto = getUrlVars()["auto"] ? true : false;
+  if(!isAuto) {
+    $("#auto-populate").hide();
+  }
+
+
   $("#auto-populate").on("click", function(){ autoPopulateForm(questions) });
   $(document).on('click', 'input[type="radio"]', function(){
     var key = $(this).attr('data-id')
@@ -554,6 +560,14 @@ function renderDial(score, remainder) {
        }
     }
   });
+}
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
 }
 
 function renderChart(){
