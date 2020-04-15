@@ -97,7 +97,7 @@ function setupFailureGrid(results) {
     if(result.type === 'Factor' && result.value > 0){
 
       $(".failure-factor-grid ." + result.code).show();
-      $(".failure-factor-grid .none").hide();
+      $(".failure-factor-grid .no-risk").hide();
 
       $(".failure-factor-grid ." + result.code + " .exposure").html(getSimplifiedStringRiskHtml(result.rawValue)).addClass(getRiskClass(result.rawValue));
       $(".failure-factor-grid ." + result.code + " .counter").html(getSimplifiedStringRiskHtml(result.counterValue)).addClass(getRiskClass(result.counterValue));
@@ -114,18 +114,18 @@ function setupDominantScore(results){
 }
 
 function getSimplifiedStringRiskHtml(risk) {
-  if(risk >= 0.75) return "Very High";
-  if(risk >= 0.5) return "High";
-  if(risk >= 0.25) return "Medium";
-  if(risk >= 0) return "Low";
-  else return "None";
+  if(risk > 0.75) return "Very High";
+  if(risk > 0.5) return "High";
+  if(risk > 0.25) return "Medium";
+  if(risk > 0) return "Low";
+  else return "Minimal";
 }
 
 function getRiskClass(risk) {
-  if(risk >= 0.75) return "very-high";
-  if(risk >= 0.5) return "high";
-  if(risk >= 0.25) return "medium";
-  if(risk >= 0) return "low";
+  if(risk > 0.75) return "very-high";
+  if(risk > 0.5) return "high";
+  if(risk > 0.25) return "medium";
+  if(risk > 0) return "low";
   else return "none";
 }
 

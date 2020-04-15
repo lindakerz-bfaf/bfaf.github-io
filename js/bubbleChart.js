@@ -83,7 +83,7 @@ function bubbleChart(width, height) {
         id: d.code,
         radius: radiusScale(+d.weightedValue.stage),
         value: d.weightedValue.stage,
-        rawValue: d.rawValue,
+        rawValue: d.value,
         name: d.factor,
         group: d.domain,
         x: Math.random() * width,

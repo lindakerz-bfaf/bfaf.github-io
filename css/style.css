@@ -240,6 +240,12 @@ tr td.very-high {
   font-weight: normal;
 }
 
+tr td.none {
+  background-color: #efefef;
+  color: #333;
+  font-weight: normal;
+}
+
 table, th, td {
   border: 2px solid white;
   border-radius: 0;
@@ -510,7 +516,7 @@ td {
   display: none;
 }
 
-.failure-factor-grid .none {
+.failure-factor-grid .no-risk {
   display: table-row;
 }
 
