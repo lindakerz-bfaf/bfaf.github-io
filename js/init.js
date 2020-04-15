@@ -111,6 +111,7 @@ function setupFailureGrid(results) {
 function setupDominantScore(results){
   var score = Math.round(calculateDominantScore(results)*100);
   $(".dominant-score").html(score + "%");
+  if(score <= 30) $(".dominant-score").addClass("very-high");
 }
 
 function getSimplifiedStringRiskHtml(risk) {
@@ -428,9 +429,11 @@ function setupFailureAndTrajectoryTotals(results, stage) {
 
   failureScore = Math.round(failureScore * 100);
   failureTrajectory = Math.round(failureTrajectory * 100);
+  failureStageScore = Math.round(failureStageScore * 100);
 
   $(".failure-score").html(failureScore);
   $(".failure-trajectory").html(failureTrajectory);
+  $(".failure-stage-score").html(failureStageScore);
 
   $(".failure-score-table").find("td").not("." + failureScoreClass).removeClass();
   $(".failure-trajectory-table").find("td").not("." + failureTrajectoryClass).removeClass();
