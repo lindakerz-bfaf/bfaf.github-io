@@ -229,7 +229,7 @@ $( document ).ready(function() {
     $('.cookie-banner').fadeOut();
   });
 
-  window.resize(function() {
+  $(window).resize(function() {
     var width = $('.factor-row-4').width() + 'px';
     $('.firm-factor-bg').css('border-right-width', width);
   })
