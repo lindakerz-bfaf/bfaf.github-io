@@ -280,6 +280,12 @@ td {
   color: white;
 }
 
+.factor-row-0 {
+  background: #333;
+  height: 25px;
+  text-transform: uppercase;
+}
+
 .factor-row-1 {
   background-color: #300b58;
   color: #FFF;

@@ -410,7 +410,7 @@
     },
     {
       "code": "f6",
-      "question": "The company has adopted an aggressive and/or persistent downsizing and cost-saving effort (i.e., sale of subsidiaries, closing stores, employee layoffs, protect-terminations)",
+      "question": "The company has adopted a rapid expansion strategy, either domestically or internationally, that aims to significantly grow its footprint (i.e., widespread store expansion, aggressive acquisition strategy)",
       "counterQuestion": "How would you rate the firm's ability to manage this aggressive growth over the long-term?",
       "questionType": "scale",
       "type": "Factor",
