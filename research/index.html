@@ -64,8 +64,36 @@
 
     <div class="footer-copyright center">
       <div class="container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeAWKxm2A_3g7E-5AFGi3rIBqUx2TPvJCBmb_p7T_prXI1H3A/viewform?embedded=true" width="640" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-
+        <h5>Have a question or want to share feedback?</h5>
+        <p>Fill out the form below and we'll get back to you shortly</p>
+        <form id="my-form" action="https://formspree.io/mdolvkjn" method="POST" >
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="name" type="text" name="name">
+              <label for="name">Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" type="email" name="email">
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="company" type="text" name="company">
+              <label for="company">Company</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="message" class="materialize-textarea" name="message"></textarea>
+              <label for="message">Your message</label>
+            </div>
+          </div>
+          <button id="my-form-button" class="btn waves-effect waves-light indigo darken-2">Submit</button>
+          <p id="my-form-status"></p>
+        </form>
        <p>Copyright © 2020 All Rights Reserved by Business Failure Insights | <a href="/privacy" target="_blank">View our Privacy Policy</a></p>
       </div>
     </div>
@@ -80,6 +108,52 @@
   <script src="../js/jquery.2.1.1.min.js"></script>
   <script src="../js/materialize.js"></script>
   <script src="../js/init.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
 
+      // get the form elements defined in your form HTML above
+
+      var form = document.getElementById("my-form");
+      var button = document.getElementById("my-form-button");
+      var status = document.getElementById("my-form-status");
+
+      // Success and Error functions for after the form is submitted
+
+      function success() {
+        form.reset();
+        button.style = "display: none ";
+        status.innerHTML = "Thanks for submitting your feedback.";
+      }
+
+      function error() {
+        status.innerHTML = "Oops! There was a problem.";
+      }
+
+      // handle the form submission event
+
+      form.addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        var data = new FormData(form);
+        ajax(form.method, form.action, data, success, error);
+      });
+    });
+
+    // helper function for sending an AJAX request
+
+    function ajax(method, url, data, success, error) {
+      var xhr = new XMLHttpRequest();
+      xhr.open(method, url);
+      xhr.setRequestHeader("Accept", "application/json");
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState !== XMLHttpRequest.DONE) return;
+        if (xhr.status === 200) {
+          success(xhr.response, xhr.responseType);
+        } else {
+          error(xhr.status, xhr.response, xhr.responseType);
+        }
+      };
+      xhr.send(data);
+    }
+  </script>
   </body>
 </html>

@@ -26,6 +26,11 @@ img.center {
   max-width: 100%;
 }
 
+#my-form {
+  background: #ffffff44;
+  padding: 30px;
+}
+
 .sidenav-trigger {
   color: #fff;
 }
