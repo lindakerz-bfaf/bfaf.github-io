@@ -133,10 +133,12 @@ function getRiskClass(risk) {
 function setupVersusChart(results, stage) {
   var bubbleResults = []
   var bubbleDomain = {}
+  var totalFactorValue = 0;
   $.each(results, function(index, result){
     if(result.type === 'Factor' && result.value > 0){
       bubbleResults.push(result)
       bubbleDomain[result.domain] = true
+      totalFactorValue += result.weightedValue.stage
     }
   })
 
@@ -152,7 +154,13 @@ function setupVersusChart(results, stage) {
   if(!bubbleDomain["Immediate"]) $(".arrow-2").hide();
   if(!bubbleDomain["General"]) $(".arrow-3").hide();
 
-  $(".versus-" + stage).show();
+  if(totalFactorValue <= 0.25 && stage == "success") {
+    $(".versus-success-low-failure").show();
+  } else {
+    $(".versus-" + stage).show();
+  }
+
+
   var width = $('.factor-row-4').width() + 'px';
   $('.firm-factor-bg').css('border-right-width', width);
 }
