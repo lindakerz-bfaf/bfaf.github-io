@@ -45,8 +45,16 @@
           <form action="https://formspree.io/maydrkrk" method="POST">
             <div class="row">
               <div class="input-field col s12">
-                <input id="file" type="file" name="file">
                 <label for="file">Your file:</label>
+                <div class="file-field input-field">
+                  <div class="btn waves-effect waves-light indigo darken-2">
+                    <span>Your file</span>
+                    <input id="file" type="file" name="file">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+                </div>
               </div>
             </div>
             <button type="submit"  id="my-form-button" class="btn waves-effect waves-light indigo darken-2">Send</button>
