@@ -323,13 +323,12 @@ function onJSONLoaded(data){
   })
   $(".mitigation-link").click(function() {
     //todo: show correct mitigation
-    var factorClass = $(this).parent().parent().class();
     var riskVal = $(this).parent().prev().text().toLowerCase();
     riskVal = riskVal.replace(/\s/g, '');
     var mitigationRow = $(this).parent().parent().next();
     mitigationRow.toggle();
     mitigationRow.find("p").hide();
-    mitigationRow.find("." + riskVal).show();
+    mitigationRow.find(".mitigation-" + riskVal).show();
 
   });
   $(".close-row").click(function() {
