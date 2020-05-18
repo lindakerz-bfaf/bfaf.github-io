@@ -74,7 +74,7 @@
     },
     {
       "code": "s5",
-      "question": "The company has increasingly accumulated debt. This is notable in a concerningly high and consistently growing debt-to-assets-ratio and/or debt-to-equity-ratio",
+      "question": "The company has increasingly accumulated debt. This is reflected in a concerningly high and consistently growing debt-to-assets-ratio and/or debt-to-equity-ratio",
       "questionType": "scale",
       "type": "Symptom",
       "domain": "Internal",
@@ -346,13 +346,13 @@
     },
     {
       "code": "f2",
-      "question": "Management has made strategic choices and decisions that were outright wrong and/or materially unfavourable to the business (post-strategy execution result)",
+      "question": "Management has made strategic choices and decisions that were outright wrong and/or materially unfavourable to the business (post execution result)",
       "counterQuestion": "How would you rate management’s capabilities to rectify and address the poor strategic choices and decisions made in the past?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
       "subDomain": "Management: Decision, Skills and Qualities",
-      "factor": "Inferior management quality and skill: Strategic Errors",
+      "factor": "Management's Strategic Errors",
       "clusters": [
         {
           "weighting": 19,
@@ -368,7 +368,7 @@
       "type": "Factor",
       "domain": "Internal",
       "subDomain": "Management Personality, Behaviors and Characteristics",
-      "factor": "Management Cognitive Inertia: Responding to change in environment",
+      "factor": "Complacency in Responding to Change in Environment",
       "clusters": [
         {
           "weighting": 16,
@@ -379,12 +379,12 @@
     {
       "code": "f4",
       "question": "Customers have shown a change in preference or demand for core products and services of the organization",
-      "counterQuestion": "How would you rate the firm's ability to successfully navigate this change in customers behaviour and realign with their preferences",
+      "counterQuestion": "How would you rate the firm's ability to successfully navigate this change in customers behaviour and realign with their preferences?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Immediate",
       "subDomain": "Micro",
-      "factor": "Changes in consumer tastes, demand or market power",
+      "factor": "Changes in Consumer Tastes, Demand or Market Power",
       "clusters": [
         {
           "weighting": 15,
@@ -400,7 +400,7 @@
       "type": "Factor",
       "domain": "Internal",
       "subDomain": "Management: Decision, Skills and Qualities",
-      "factor": "Inferior management quality and skill: Strategic Foresight",
+      "factor": "Management’s Inferior Strategic Foresight",
       "clusters": [
         {
           "weighting": 14,
@@ -416,7 +416,7 @@
       "type": "Factor",
       "domain": "Internal",
       "subDomain": "Management: Strategic Focus",
-      "factor": "Management Strategic Focus: Aggressive, Ambitious and/or Risky Growth Endeavors ",
+      "factor": "Aggressive, Ambitious and/or Risky Growth Endeavors",
       "clusters": [
         {
           "weighting": 13,
@@ -432,7 +432,7 @@
       "type": "Factor",
       "domain": "Internal",
       "subDomain": "Firm: Business Model",
-      "factor": "Business Model: lack/loss/misallocation of quality resources and distinctive competencies",
+      "factor": "Lack/Loss/Misallocation of Quality Resources and Distinctive Competencies",
       "clusters": [
         {
           "weighting": 14,
@@ -448,7 +448,7 @@
       "type": "Factor",
       "domain": "Internal",
       "subDomain": "Firm: Ineffective processes and systems",
-      "factor": "Ineffective processes and systems: Marketing, Marketing Mix and/or Branding",
+      "factor": "Inadequate Marketing, Marketing Mix and/or Branding",
       "clusters": [
         {
           "weighting": 10,
@@ -464,7 +464,7 @@
       "type": "Factor",
       "domain": "Internal",
       "subDomain": "Firm: Business Model",
-      "factor": "Business Model: Constrained by Leveraged Buyout Debt",
+      "factor": "Constrained by Leveraged Buyout Debt",
       "clusters": [
         {
           "weighting": 9,
@@ -480,7 +480,7 @@
       "type": "Factor",
       "domain": "General",
       "subDomain": "Macro",
-      "factor": "Changes in Economic Factors: Recessionary Downturn",
+      "factor": "Recessionary Downturn",
       "clusters": [
         {
           "weighting": 8,
@@ -496,7 +496,7 @@
       "type": "Factor",
       "domain": "Immediate",
       "subDomain": "Micro",
-      "factor": "Industry-wide Disruption and Complexities",
+      "factor": "Industry-Wide Disruption and Complexities",
       "clusters": [
         {
           "weighting": 9,
@@ -512,7 +512,7 @@
       "type": "Factor",
       "domain": "Internal",
       "subDomain": "Management: Management System",
-      "factor": "Ineffective management systems: Internal Stakeholder Disharmony",
+      "factor": "Internal Stakeholder Disharmony",
       "clusters": [
         {
           "weighting": 7,
@@ -528,7 +528,7 @@
       "type": "Factor",
       "domain": "Internal",
       "subDomain": "Management Personality, Behaviors and Characteristics",
-      "factor": "Management Personality deficiencies: hubris leader (narcissist, arrogance, excessive pride, dangerous overconfidence)",
+      "factor": "Hubristic Leadership Traits",
       "clusters": [
         {
           "weighting": 7,
@@ -544,7 +544,7 @@
       "type": "Factor",
       "domain": "Internal",
       "subDomain": "Management: Management System",
-      "factor": "Ineffective management systems: Frequently Changing Management Team",
+      "factor": "Frequently Changing Management Team",
       "clusters": [
         {
           "weighting": 7,
@@ -560,7 +560,7 @@
       "type": "Factor",
       "domain": "Internal",
       "subDomain": "Firm: Business Model",
-      "factor": "Business Model: Low Value/Devaluing Business activities (Products/Service)",
+      "factor": "Low Value/Devaluing Business Activities (Products/Service)",
       "clusters": [
         {
           "weighting": 6,
@@ -576,7 +576,7 @@
       "type": "Factor",
       "domain": "Internal",
       "subDomain": "Management Personality, Behaviors and Characteristics",
-      "factor": "Management Cognitive Inertia: Resistance to change",
+      "factor": "Management's Resistance to Change",
       "clusters": [
         {
           "weighting": 6,
@@ -592,7 +592,7 @@
       "type": "Factor",
       "domain": "Internal",
       "subDomain": "Management Personality, Behaviors and Characteristics",
-      "factor": "Management Personality deficiencies: Conflicting Self-Interests",
+      "factor": "Management's Conflicting Self-Interests",
       "clusters": [
         {
           "weighting": 6,
@@ -603,12 +603,12 @@
     {
       "code": "f18",
       "question": "The company's core assets or asset related obligations (resource commitments, rents, mortgage payments) are restricting their strategic action in response to internal and external environment changes",
-      "counterQuestion": "How would you rate the firm's ability to successfully manage these inadequacies stemming from the asset-related obligations ",
+      "counterQuestion": "How would you rate the firm's ability to successfully manage these inadequacies stemming from the asset-related obligations?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
       "subDomain": "Firm: Business Model",
-      "factor": "Business Model: Asset Entrenchment Vulnerabilities",
+      "factor": "Asset Entrenchment Vulnerabilities",
       "clusters": [
         {
           "weighting": 6,
@@ -619,12 +619,12 @@
     {
       "code": "f19",
       "question": "The company has taken on considerable debt to support growth endeavours",
-      "counterQuestion": "How would you rate the firm's ability to manage its debt obligations in relation to the level of risk associated with the growth endeavour",
+      "counterQuestion": "How would you rate the firm's ability to manage its debt obligations in relation to the level of risk associated with the growth endeavour?",
       "questionType": "scale",
       "type": "Factor",
       "domain": "Internal",
       "subDomain": "Management: Strategic Focus",
-      "factor": "Management Strategic Focus: Debt Funded Growth",
+      "factor": "Debt Funded Growth",
       "clusters": [
         {
           "weighting": 6,
