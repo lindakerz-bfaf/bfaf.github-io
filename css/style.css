@@ -296,6 +296,36 @@ td {
   background: #333;
   height: 25px;
   text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.factor-row-0 img {
+  width: 110%;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: -5%;
+}
+
+.factor-row-0 .weak {
+  font-size: 0.8em;
+  line-height: 1em;
+  text-transform: none;
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  width: 70px;
+}
+
+.factor-row-0 .strong {
+  font-size: 0.8em;
+  line-height: 1em;
+  text-transform: none;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: 70px;
 }
 
 .factor-row-1 {

@@ -327,7 +327,7 @@ function onJSONLoaded(data){
     riskVal = riskVal.replace(/\s/g, '');
     var mitigationRow = $(this).parent().parent().next();
     mitigationRow.toggle();
-    mitigationRow.find("p").hide();
+    mitigationRow.find("div").hide();
     mitigationRow.find(".mitigation-" + riskVal).show();
 
   });
