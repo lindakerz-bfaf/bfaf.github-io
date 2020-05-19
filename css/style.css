@@ -294,7 +294,7 @@ td {
 
 .factor-row-0 {
   background: #333;
-  height: 25px;
+  height: 50px;
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
@@ -566,6 +566,20 @@ a.mitigation-link {
 .mitigation td {
   padding: 0 50px 5px;
   position: relative;
+}
+
+.mitigation ul {
+  list-style-type: disc;
+  padding-left: 40px;
+}
+
+.mitigation ul li {
+  list-style-type: disc;
+  padding-bottom: 5px;
+}
+
+.mitigation ol li {
+  padding-bottom: 5px;
 }
 
 .close-row {
