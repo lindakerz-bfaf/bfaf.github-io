@@ -301,9 +301,10 @@ function onJSONLoaded(data){
     $(window).scrollTop(0);
   });
   var isAuto = getUrlVars()["auto"] ? true : false;
-  if(!isAuto) {
-    $("#auto-populate").hide();
-  }
+  // TEMP HIDE OF AUTO-POPULATE FOR MARKING
+  // if(!isAuto) {
+  //   $("#auto-populate").hide();
+  // }
 
 
   $("#auto-populate").on("click", function(){ autoPopulateForm(questions) });

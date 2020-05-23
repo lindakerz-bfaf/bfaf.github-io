@@ -625,3 +625,8 @@ a.mitigation-link {
   border-radius: 2px;
   cursor: pointer;
 }
+
+
+.waves-effect.waves-indigo .waves-ripple {
+  background-color: rgba(48, 63, 159, 0.65);
+}
